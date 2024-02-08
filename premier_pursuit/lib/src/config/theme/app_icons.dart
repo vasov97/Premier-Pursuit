@@ -12,6 +12,16 @@ class AppIcons {
     width: 37,
     height: 37,
   );
+  static final SvgPicture magnifier = SvgPicture.asset(
+    'assets/icons/Group 867.svg',
+    width: 30,
+    height: 30,
+  );
+  static final Image wifi = Image.asset(
+    'assets/icons/wifi.png',
+    width: 18.47,
+    height: 18.47,
+  );
   static final Image admin = Image.asset(
     'assets/icons/admin_icon.png',
     height: 60.34,

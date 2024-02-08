@@ -15,13 +15,33 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AdminEventsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AdminEventsView(),
+      );
+    },
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SplashView(),
       );
-    }
+    },
   };
+}
+
+/// generated route for
+/// [AdminEventsView]
+class AdminEventsRoute extends PageRouteInfo<void> {
+  const AdminEventsRoute({List<PageRouteInfo>? children})
+      : super(
+          AdminEventsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AdminEventsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

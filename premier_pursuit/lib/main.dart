@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/presentation/views/splash/splash_view.dart';
 
@@ -11,11 +12,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SplashView(),
-      ),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
     );
   }
 }

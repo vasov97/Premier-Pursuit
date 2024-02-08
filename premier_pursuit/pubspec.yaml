@@ -24,9 +24,13 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/Logo.svg
+    - assets/images/background.png
     - assets/icons/admin_icon.png
+    - assets/icons/loading.svg
+    - assets/icons/Group 867.svg
+    - assets/icons/Logo.svg
     - assets/icons/Vector.svg
+    - assets/icons/wifi.png
   fonts:
     - family: Montserrat
       fonts:
