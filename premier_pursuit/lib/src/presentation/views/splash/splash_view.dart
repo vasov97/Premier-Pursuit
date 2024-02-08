@@ -5,10 +5,18 @@ import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
+import 'package:premier_pursuit/src/presentation/widgets/login_text_field.dart';
 
 @RoutePage()
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  bool _showAdmin = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,22 +38,87 @@ class SplashView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AppIcons.appLogo,
-            const SizedBox(height: 20),
-            const Text(
-              appName,
-              style: AppTypography.heading1,
-            ),
-            const SizedBox(height: 20),
-            const CustomOutlinedButton(
-              borderColor: AppColors.orangeOutline,
-              backgroundColor: AppColors.orangeBackground,
-              text: getStarted,
-            ),
-            const SizedBox(height: 20),
-            const SizedBox(
-              height: 40,
-            ),
+            !_showAdmin
+                ? Column(
+                    children: [
+                      AppIcons.appLogo,
+                      const SizedBox(height: 20),
+                      Text(
+                        appName,
+                        style: AppTypography.textStyle(
+                          fontSize: 27,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      CustomOutlinedButton(
+                          borderColor: AppColors.orangeOutline,
+                          backgroundColor: AppColors.orangeBackground,
+                          text: getStarted,
+                          onTap: () {
+                            setState(() {
+                              _showAdmin = true;
+                            });
+                          }),
+                      const SizedBox(height: 20),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                    ],
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Container(
+                      width: 555,
+                      height: 608,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _showAdmin = false;
+                                    });
+                                  },
+                                  icon: AppIcons.close),
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 40),
+                              child: Text(
+                                'Admin Login',
+                                style: AppTypography.textStyle(
+                                  fontSize: 60,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.blueFont,
+                                ),
+                              ),
+                            ),
+                            const LoginTextField(),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20.0),
+                              child: CustomOutlinedButton(
+                                  borderColor: AppColors.orangeOutline,
+                                  backgroundColor: AppColors.orangeBackground,
+                                  text: 'LOGIN',
+                                  onTap: () {}),
+                            )
+                          ],
+                        ),
+                      ]),
+                    ),
+                  ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -61,23 +134,38 @@ class SplashView extends StatelessWidget {
                           child: AppIcons.admin,
                         ),
                       ),
-                      const Text(
+                      Text(
                         admin,
-                        style: AppTypography.heading5,
+                        style: AppTypography.textStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 const Spacer(),
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 28.0, right: 85),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 28.0, right: 85),
                   child: Column(
                     children: [
-                      Text(copyright, style: AppTypography.heading4),
-                      SizedBox(
+                      Text(
+                        copyright,
+                        style: AppTypography.textStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      const SizedBox(
                         height: 9,
                       ),
-                      Text(appNameR, style: AppTypography.heading4)
+                      Text(
+                        appNameR,
+                        style: AppTypography.textStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
                     ],
                   ),
                 ),

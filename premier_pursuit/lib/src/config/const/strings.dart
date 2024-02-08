@@ -3,3 +3,4 @@ const appNameR = 'PREMIER PURSUITS®';
 const appName = ' PREMIER\nPURSUITS';
 const getStarted = 'GET STARTED';
 const admin = 'ADMIN';
+const adminPasswordHint = 'ENTER ADMIN PASSWORD';

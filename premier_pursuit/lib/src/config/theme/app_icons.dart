@@ -7,6 +7,11 @@ class AppIcons {
     width: 262,
     height: 262,
   );
+  static final SvgPicture close = SvgPicture.asset(
+    'assets/icons/Vector.svg',
+    width: 37,
+    height: 37,
+  );
   static final Image admin = Image.asset(
     'assets/icons/admin_icon.png',
     height: 60.34,

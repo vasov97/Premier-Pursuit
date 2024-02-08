@@ -7,4 +7,6 @@ class AppColors {
 
   static const Color orangeOutline = Color.fromRGBO(255, 69, 0, 1);
   static const Color orangeBackground = Color.fromRGBO(243, 121, 67, 1);
+
+  static const Color blueFont = Color.fromRGBO(2, 64, 120, 1);
 }
