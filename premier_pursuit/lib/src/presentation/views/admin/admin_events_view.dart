@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_images.dart';
@@ -20,18 +21,20 @@ class _AdminEventsViewState extends State<AdminEventsView> {
   bool isCheckedTeam = false;
   bool isCheckedCompany = false;
   bool isDrawerOpen = false;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      //onDrawerChanged: (isOpened) => isLoading = isOpened,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       drawer: Drawer(
-        width: screenWidth * 0.6,
+        width: screenWidth * 0.5,
         backgroundColor: Colors.white.withOpacity(0.9),
         child: Row(
           children: <Widget>[
@@ -213,7 +216,11 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                       backgroundColor: AppColors.orangeBackground,
                       text: 'LOAD SELECTED EVENTS',
                       textColor: Colors.white,
-                      onTap: () {}),
+                      onTap: () {
+                        setState(() {
+                          isLoading = !isLoading;
+                        });
+                      }),
                 ),
                 Row(
                   children: [
@@ -291,6 +298,55 @@ class _AdminEventsViewState extends State<AdminEventsView> {
               ),
             ],
           ),
+          isLoading
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 75),
+                            child: SizedBox(
+                              height: 240,
+                              width: 240,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  const LoadingIndicator(
+                                    strokeWidth: 4,
+                                    indicatorType: Indicator.lineSpinFadeLoader,
+                                    colors: [
+                                      Color.fromARGB(220, 255, 255, 255)
+                                    ],
+                                  ),
+                                  Text(
+                                    'LOADING...',
+                                    style: AppTypography.textStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          //CircularProgressIndicator(),
+                          AppImages.loadingText
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              : const SizedBox(),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -327,7 +383,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                             style: AppTypography.textStyle(
                               fontSize: 8,
                               fontWeight: FontWeight.w100,
-                              color: Color.fromRGBO(255, 255, 255, 1),
+                              color: const Color.fromRGBO(255, 255, 255, 1),
                             ),
                           ),
                         ),

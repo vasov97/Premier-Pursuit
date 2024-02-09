@@ -7,4 +7,5 @@ class AppImages {
     width: 35,
     height: 35,
   );
+  static Image loadingText = Image.asset('assets/images/loading_text.png');
 }
