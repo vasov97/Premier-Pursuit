@@ -25,9 +25,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/background.png
+    - assets/images/help.png
+    - assets/icons/Group 849.png
     - assets/icons/admin_icon.png
     - assets/icons/loading.svg
     - assets/icons/Group 867.svg
+    - assets/icons/Group 835.svg
+    - assets/icons/Group 802.svg
     - assets/icons/Logo.svg
     - assets/icons/Vector.svg
     - assets/icons/wifi.png

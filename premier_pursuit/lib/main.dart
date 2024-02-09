@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
+import 'package:premier_pursuit/src/config/theme/app_theme.dart';
 import 'package:premier_pursuit/src/presentation/views/splash/splash_view.dart';
 
 void main() {
@@ -13,6 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: AppTheme.appTheme,
       debugShowCheckedModeBanner: false,
       routerDelegate: appRouter.delegate(),
       routeInformationParser: appRouter.defaultRouteParser(),
