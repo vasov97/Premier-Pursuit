@@ -28,6 +28,11 @@ class AppIcons {
     width: 41.4,
     height: 46,
   );
+  static final SvgPicture calendar = SvgPicture.asset(
+    'assets/icons/Group.svg',
+    width: 39,
+    height: 39,
+  );
   static final Image wifi = Image.asset(
     'assets/icons/wifi.png',
     width: 18.47,
