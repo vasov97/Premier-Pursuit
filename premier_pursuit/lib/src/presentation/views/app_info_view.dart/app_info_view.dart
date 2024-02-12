@@ -344,7 +344,8 @@ class _AppInfoViewState extends State<AppInfoView> {
                                 borderColor: AppColors.orangeOutline,
                                 backgroundColor: AppColors.orangeBackground,
                                 text: 'CONTINUE',
-                                onTap: () {},
+                                onTap: () =>
+                                    appRouter.push(const AppTeamNameRoute()),
                               ),
                             ),
                           ],

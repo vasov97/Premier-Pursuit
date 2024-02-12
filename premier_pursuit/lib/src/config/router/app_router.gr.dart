@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AppInfoView(),
       );
     },
+    AppTeamNameRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AppTeamNameView(),
+      );
+    },
     EventAdventureRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -66,6 +72,20 @@ class AppInfoRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AppInfoRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AppTeamNameView]
+class AppTeamNameRoute extends PageRouteInfo<void> {
+  const AppTeamNameRoute({List<PageRouteInfo>? children})
+      : super(
+          AppTeamNameRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AppTeamNameRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

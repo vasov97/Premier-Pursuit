@@ -109,7 +109,9 @@ class _SplashViewState extends State<SplashView> {
                                   ),
                                 ),
                               ),
-                              const LoginTextField(),
+                              const LoginTextField(
+                                text: adminPasswordHint,
+                              ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                                 child: CustomOutlinedButton(

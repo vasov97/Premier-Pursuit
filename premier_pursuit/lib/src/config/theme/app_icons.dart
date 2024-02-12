@@ -43,6 +43,12 @@ class AppIcons {
     height: 60.34,
     width: 60.34,
   );
+  static final Image adminWhite = Image.asset(
+    'assets/icons/admin_icon.png',
+    height: 30.34,
+    width: 30.34,
+    color: Colors.white,
+  );
   static final Image adminOrange = Image.asset(
     'assets/icons/admin_icon.png',
     height: 60.34,
