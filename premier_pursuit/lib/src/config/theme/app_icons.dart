@@ -49,6 +49,26 @@ class AppIcons {
     width: 60.34,
     color: AppColors.orangeOutline,
   );
+  static final Image camera = Image.asset(
+    'assets/icons/camera.png',
+    width: 36.69,
+    height: 35.19,
+  );
+  static final Image gift = Image.asset(
+    'assets/icons/gift.png',
+    width: 36.69,
+    height: 35.19,
+  );
+  static final Image search = Image.asset(
+    'assets/icons/search.png',
+    width: 36.69,
+    height: 35.19,
+  );
+  static final Image youtube = Image.asset(
+    'assets/icons/youtube.png',
+    width: 36.69,
+    height: 35.19,
+  );
 
   static final Image adminLogout = Image.asset(
     'assets/icons/Group 849.png',
@@ -60,5 +80,15 @@ class AppIcons {
     'assets/icons/loading.svg',
     width: 37,
     height: 36,
+  );
+  static final SvgPicture trivia = SvgPicture.asset(
+    'assets/icons/trivia.svg',
+    width: 36.69,
+    height: 35.19,
+  );
+  static final SvgPicture hotspot = SvgPicture.asset(
+    'assets/icons/hotspot.svg',
+    width: 36.69,
+    height: 35.19,
   );
 }

@@ -37,6 +37,13 @@ flutter:
     - assets/icons/Logo.svg
     - assets/icons/Vector.svg
     - assets/icons/wifi.png
+    - assets/icons/trivia.svg
+    - assets/icons/hotspot.svg
+    - assets/icons/camera.png
+    - assets/icons/gift.png
+    - assets/icons/search.png
+    - assets/icons/youtube.png
+
   fonts:
     - family: Montserrat
       fonts:

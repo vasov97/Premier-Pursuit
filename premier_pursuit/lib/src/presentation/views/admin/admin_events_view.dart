@@ -1,12 +1,12 @@
-import 'dart:ui';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_images.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
+import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 
 @RoutePage()
@@ -28,14 +28,13 @@ class _AdminEventsViewState extends State<AdminEventsView> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      //onDrawerChanged: (isOpened) => isLoading = isOpened,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       drawer: Drawer(
-        width: screenWidth * 0.5,
+        width: screenWidth * 0.6,
         backgroundColor: Colors.white.withOpacity(0.9),
         child: Row(
           children: <Widget>[
@@ -111,14 +110,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                       AppIcons.adminOrange,
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          'Admin',
-                          style: AppTypography.textStyle(
-                            fontSize: 45,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.blueFont,
-                          ),
-                        ),
+                        child: admin45,
                       ),
                     ],
                   ),
@@ -148,13 +140,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                                   child: Row(
                                     children: [
                                       AppIcons.wifi,
-                                      Text(
-                                        'WI-FI REQUIRED ',
-                                        style: AppTypography.textStyle(
-                                            fontSize: 10,
-                                            color: AppColors.blueFont,
-                                            fontWeight: FontWeight.w200),
-                                      ),
+                                      wifiRequired,
                                     ],
                                   ),
                                 ),
@@ -240,13 +226,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Text(
-                                  'Don\'t see your Event?',
-                                  style: AppTypography.textStyle(
-                                      fontSize: 17,
-                                      color: AppColors.blueFont,
-                                      fontWeight: FontWeight.w300),
-                                ),
+                                child: eventText,
                               ),
                               Padding(
                                 padding:
@@ -254,13 +234,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                                 child: Row(
                                   children: [
                                     AppIcons.wifi,
-                                    Text(
-                                      'WI-FI REQUIRED ',
-                                      style: AppTypography.textStyle(
-                                          fontSize: 10,
-                                          color: AppColors.blueFont,
-                                          fontWeight: FontWeight.w200),
-                                    ),
+                                    wifiRequired,
                                   ],
                                 ),
                               ),
@@ -287,13 +261,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                                 AppIcons.calendar,
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Current Event',
-                                    style: AppTypography.textStyle(
-                                        fontSize: 27,
-                                        fontWeight: FontWeight.w500,
-                                        color: AppColors.blueFont),
-                                  ),
+                                  child: currentEvent,
                                 ),
                               ],
                             ),
@@ -314,26 +282,12 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                               horizontal: 25,
                               vertical: 5,
                             ),
-                            child: Text(
-                              'Company Name',
-                              style: AppTypography.textStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.blueFont,
-                              ),
-                            ),
+                            child: companyName,
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
-                            child: Text(
-                              'CITY, STATE • MM/DD/YY',
-                              style: AppTypography.textStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.blueFont,
-                              ),
-                            ),
-                          ),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25),
+                              child: cityStateDate),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 25,
@@ -370,14 +324,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'QUESTION ANSWERED:',
-                                        style: AppTypography.textStyle(
-                                          fontSize: 15,
-                                          color: AppColors.blueFont,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
+                                      questionsAnswered,
                                       Row(
                                         children: [
                                           Text(
@@ -408,14 +355,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'TEAM SCORE:',
-                                        style: AppTypography.textStyle(
-                                          fontSize: 15,
-                                          color: AppColors.blueFont,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
+                                      teamScore,
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
@@ -454,13 +394,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 AppIcons.wifi,
-                                Text(
-                                  'WI-FI REQUIRED ',
-                                  style: AppTypography.textStyle(
-                                      fontSize: 10,
-                                      color: AppColors.blueFont,
-                                      fontWeight: FontWeight.w200),
-                                ),
+                                wifiRequired,
                               ],
                             ),
                           ),
@@ -471,7 +405,9 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                               borderColor: AppColors.orangeOutline,
                               backgroundColor: AppColors.orangeOutline,
                               text: 'COMPLETE EVENT',
-                              onTap: () {},
+                              onTap: () => appRouter.push(
+                                const EventAdventureRoute(),
+                              ),
                             ),
                           )
                         ],
@@ -488,8 +424,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
               Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        'assets/images/background.png'), // Background image
+                    image: AssetImage('assets/images/background.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -501,8 +436,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                     end: Alignment.topCenter,
                     colors: [
                       AppColors.blueFont,
-                      Colors
-                          .transparent, // Optional: add more colors if desired
+                      Colors.transparent,
                     ],
                   ),
                 ),
@@ -535,12 +469,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
                                       Color.fromARGB(220, 255, 255, 255)
                                     ],
                                   ),
-                                  Text(
-                                    'LOADING...',
-                                    style: AppTypography.textStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w600),
-                                  ),
+                                  loading,
                                 ],
                               ),
                             ),

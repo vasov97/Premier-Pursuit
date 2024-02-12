@@ -22,24 +22,27 @@ class CustomOutlinedButton extends StatelessWidget {
     return SizedBox(
       height: outlineButtonHeight,
       width: outlineButtonWidth,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(backgroundColor),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(outlineButtonRadius),
-              side: BorderSide(color: borderColor, width: 3.34),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 4),
+        child: ElevatedButton(
+          onPressed: onTap,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(backgroundColor),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(outlineButtonRadius),
+                side: BorderSide(color: borderColor, width: 3.34),
+              ),
             ),
           ),
-        ),
-        child: Text(
-          text,
-          style: AppTypography.textStyle(
-              fontSize: 17,
-              color: textColor,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 5),
+          child: Text(
+            text,
+            style: AppTypography.textStyle(
+                fontSize: 17,
+                color: textColor,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 5),
+          ),
         ),
       ),
     );
