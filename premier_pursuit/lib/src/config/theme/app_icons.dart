@@ -70,6 +70,12 @@ class AppIcons {
     height: 35.19,
   );
 
+  static final Image help = Image.asset(
+    'assets/icons/help.png',
+    // width: 36.69,
+    // height: 35.19,
+  );
+
   static final Image adminLogout = Image.asset(
     'assets/icons/Group 849.png',
     height: 65,

@@ -27,6 +27,12 @@ flutter:
     - assets/images/background.png
     - assets/images/help.png
     - assets/images/loading_text.png
+    - assets/images/rule_one.png
+    - assets/images/rule_two.png
+    - assets/images/rule_three.png
+    - assets/images/rule_four.png
+    - assets/images/rule_five.png
+    - assets/images/rule_six.png
     - assets/icons/Group 849.png
     - assets/icons/admin_icon.png
     - assets/icons/loading.svg
@@ -43,6 +49,7 @@ flutter:
     - assets/icons/gift.png
     - assets/icons/search.png
     - assets/icons/youtube.png
+    - assets/icons/help.png
 
   fonts:
     - family: Montserrat

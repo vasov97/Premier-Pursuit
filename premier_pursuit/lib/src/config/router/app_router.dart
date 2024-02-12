@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:premier_pursuit/src/presentation/views/admin/admin_events_view.dart';
+import 'package:premier_pursuit/src/presentation/views/app_info_view.dart/app_info_view.dart';
 import 'package:premier_pursuit/src/presentation/views/event/event_adventure_view.dart';
 import 'package:premier_pursuit/src/presentation/views/splash/splash_view.dart';
 
@@ -12,6 +13,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(path: '/splash', page: SplashRoute.page, initial: true),
         AutoRoute(path: '/admin-events', page: AdminEventsRoute.page),
         AutoRoute(path: '/event-adventure', page: EventAdventureRoute.page),
+        AutoRoute(path: '/app-info', page: AppInfoRoute.page),
       ];
 }
 

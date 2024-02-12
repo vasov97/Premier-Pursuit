@@ -9,4 +9,6 @@ class AppColors {
   static const Color orangeBackground = Color.fromRGBO(243, 121, 67, 1);
 
   static const Color blueFont = Color.fromRGBO(2, 64, 120, 1);
+
+  static Color drawerWhiteBackground = Colors.white.withOpacity(0.9);
 }

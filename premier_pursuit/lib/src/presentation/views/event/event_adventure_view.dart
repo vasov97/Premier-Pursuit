@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_images.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
+import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
 import 'package:premier_pursuit/src/presentation/widgets/challenge_widget.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 
@@ -28,58 +30,10 @@ class _EventAdventureViewState extends State<EventAdventureView> {
       ),
       drawer: Drawer(
         width: screenWidth * 0.6,
-        backgroundColor: Colors.white.withOpacity(0.9),
+        backgroundColor: AppColors.drawerWhiteBackground,
         child: Row(
           children: [
-            Column(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Material(
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(20.0),
-                    ),
-                    elevation: 6,
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(20.0),
-                      ),
-                      child: Container(
-                        color: AppColors.blueFont,
-                        width: screenWidth * 0.1,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height: 70,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12.0),
-                                  ),
-                                ),
-                                width: 66.8,
-                                child: AppImages.helpCircle,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: SizedBox(
-                                height: 73,
-                                width: 73,
-                                child: AppIcons.appLogo,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
+            BlueDrawer(screenWidth: screenWidth),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Column(
@@ -163,7 +117,7 @@ class _EventAdventureViewState extends State<EventAdventureView> {
                     borderColor: AppColors.orangeOutline,
                     backgroundColor: AppColors.orangeBackground,
                     text: 'GET STARTED',
-                    onTap: () {},
+                    onTap: () => appRouter.push(const AppInfoRoute()),
                   ),
                 ],
               ),
