@@ -50,11 +50,12 @@ final companyName = Text(
 final eventAdventureTitle = Text(
   'DeckerDevs Bicycle Team Building',
   style: AppTypography.textStyle(
-    fontSize: 40,
+    fontSize: 35,
     fontWeight: FontWeight.w400,
     color: AppColors.orangeBackground,
   ),
   softWrap: true,
+  textAlign: TextAlign.left,
 );
 
 const followTheRulesText = Padding(
@@ -122,3 +123,92 @@ final loading = Text(
     fontWeight: FontWeight.w600,
   ),
 );
+
+final signOutMsg = Text(
+  'BE SURE TO SIGN OUT ONCE\nADMIN TASKS ARE COMPLETED',
+  style: AppTypography.textStyle(
+    fontSize: 8,
+    fontWeight: FontWeight.w100,
+    color: const Color.fromRGBO(255, 255, 255, 1),
+  ),
+);
+
+final adminSignOut = Text(
+  'ADMIN SIGN-OUT',
+  style: AppTypography.textStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w600,
+      color: AppColors.orangeBackground),
+);
+
+final phoneNumberPlaceholder = Text(
+  '(XXX) XXX-XXXX',
+  style: AppTypography.textStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w300,
+    color: AppColors.blueFont,
+  ),
+);
+
+final facilitatorName = Text(
+  'FACILITATOR NAME',
+  style: AppTypography.textStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w600,
+    color: AppColors.blueFont,
+  ),
+);
+
+final eventFacilitator = Text(
+  'Your Event Facilitator',
+  style: AppTypography.textStyle(
+    fontSize: 25,
+    fontWeight: FontWeight.w500,
+    color: AppColors.orangeBackground,
+  ),
+);
+
+final information = Text(
+  'Information',
+  style: AppTypography.textStyle(
+    fontSize: 34,
+    fontWeight: FontWeight.w500,
+    color: AppColors.blueFont,
+  ),
+);
+
+final eventRules = Text(
+  'Event Rules',
+  style: AppTypography.textStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.w500,
+    color: AppColors.blueFont,
+  ),
+);
+
+final teamName = Text(
+  'Team Name',
+  style: AppTypography.textStyle(
+    fontSize: 25,
+    fontWeight: FontWeight.w400,
+    color: AppColors.blueFont,
+  ),
+);
+
+final dockerDevsTeam = Text(
+  'DeckerDevs Bicycle\nTeam Building',
+  style: AppTypography.textStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.w500,
+    color: AppColors.orangeBackground,
+  ),
+);
+
+Text buildNumber(String number) => Text(
+      '$number.',
+      style: AppTypography.textStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: AppColors.blueFont,
+      ),
+    );

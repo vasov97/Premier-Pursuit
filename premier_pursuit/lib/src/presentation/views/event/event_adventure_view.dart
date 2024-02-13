@@ -19,10 +19,20 @@ class EventAdventureView extends StatefulWidget {
 }
 
 class _EventAdventureViewState extends State<EventAdventureView> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _scaffoldKey.currentState!.openDrawer();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(17, 70, 132, 0.3),

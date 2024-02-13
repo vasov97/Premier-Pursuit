@@ -17,10 +17,21 @@ class AppTeamNameView extends StatefulWidget {
 }
 
 class _AppTeamNameViewState extends State<AppTeamNameView> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _scaffoldKey.currentState!
+          .openDrawer(); // Open the drawer after the frame has been rendered
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(17, 70, 132, 0.3),
@@ -47,7 +58,7 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
                       child: IconButton(
                         icon: AppIcons.backButton,
                         onPressed: () => appRouter.popAndPush(
-                          const EventAdventureRoute(),
+                          const AppInfoRoute(),
                         ),
                       ),
                     ),
@@ -94,8 +105,7 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
               Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        'assets/images/background.png'), // Background image
+                    image: AssetImage('assets/images/background.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -107,8 +117,7 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
                     end: Alignment.topCenter,
                     colors: [
                       AppColors.blueFont,
-                      Colors
-                          .transparent, // Optional: add more colors if desired
+                      Colors.transparent,
                     ],
                   ),
                 ),
@@ -117,7 +126,6 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 45.0),

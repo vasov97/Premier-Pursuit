@@ -19,10 +19,21 @@ class AppInfoView extends StatefulWidget {
 }
 
 class _AppInfoViewState extends State<AppInfoView> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _scaffoldKey.currentState!
+          .openDrawer(); // Open the drawer after the frame has been rendered
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(17, 70, 132, 0.3),
