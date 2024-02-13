@@ -28,6 +28,12 @@ class AppIcons {
     width: 41.4,
     height: 46,
   );
+  static final SvgPicture backButtonPink = SvgPicture.asset(
+    'assets/icons/Group 835.svg',
+    width: 41.4,
+    height: 46,
+    color: Colors.pink,
+  );
   static final SvgPicture calendar = SvgPicture.asset(
     'assets/icons/Group.svg',
     width: 39,
@@ -97,6 +103,12 @@ class AppIcons {
     'assets/icons/trivia.svg',
     width: 36.69,
     height: 35.19,
+  );
+  static final SvgPicture triviaWhite = SvgPicture.asset(
+    'assets/icons/trivia.svg',
+    width: 36.69,
+    height: 35.19,
+    color: Colors.white,
   );
   static final SvgPicture hotspot = SvgPicture.asset(
     'assets/icons/hotspot.svg',

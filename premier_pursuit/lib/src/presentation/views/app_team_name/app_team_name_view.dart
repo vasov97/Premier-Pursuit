@@ -90,7 +90,7 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
                     borderColor: AppColors.orangeOutline,
                     backgroundColor: AppColors.orangeBackground,
                     text: 'START TRAINING',
-                    onTap: () {},
+                    onTap: () => appRouter.push(const TrainingRoute()),
                   ),
                 )
               ],

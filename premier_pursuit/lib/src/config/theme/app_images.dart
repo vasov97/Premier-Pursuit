@@ -19,6 +19,10 @@ class AppImages {
     width: 300,
   );
 
+  static Image questionMarks = Image.asset(
+    'assets/images/question_marks.png',
+  );
+
   static Image ruleThree = Image.asset(
     'assets/images/rule_three.png',
     width: 250,

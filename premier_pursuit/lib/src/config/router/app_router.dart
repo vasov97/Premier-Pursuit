@@ -4,6 +4,7 @@ import 'package:premier_pursuit/src/presentation/views/app_info_view.dart/app_in
 import 'package:premier_pursuit/src/presentation/views/app_team_name/app_team_name_view.dart';
 import 'package:premier_pursuit/src/presentation/views/event/event_adventure_view.dart';
 import 'package:premier_pursuit/src/presentation/views/splash/splash_view.dart';
+import 'package:premier_pursuit/src/presentation/views/training_view/training_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -16,6 +17,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(path: '/event-adventure', page: EventAdventureRoute.page),
         AutoRoute(path: '/app-info', page: AppInfoRoute.page),
         AutoRoute(path: '/app-team-name', page: AppTeamNameRoute.page),
+        AutoRoute(path: '/training', page: TrainingRoute.page),
       ];
 }
 
