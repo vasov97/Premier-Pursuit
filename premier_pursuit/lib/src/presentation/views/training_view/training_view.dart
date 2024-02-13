@@ -190,7 +190,12 @@ class _TrainingViewState extends State<TrainingView> {
                         borderColor: AppColors.pinkBackground,
                         backgroundColor: AppColors.pinkText,
                         text: 'SUBMIT ANSWER',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          _selectedOptionIndex == 2
+                              ? showAnswerDialog(context, isCorrect: true)
+                              : showAnswerDialog(context, isCorrect: false);
+                        },
                       ),
                     ],
                   )
@@ -340,7 +345,7 @@ class _TrainingViewState extends State<TrainingView> {
         margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           color: _selectedOptionIndex == index
-              ? Color.fromARGB(156, 237, 16, 101)
+              ? const Color.fromARGB(156, 237, 16, 101)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(25),
           border: Border.all(
@@ -363,4 +368,130 @@ class _TrainingViewState extends State<TrainingView> {
       ),
     );
   }
+
+  showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
+        context: context,
+        builder: (context) {
+          final screenWidth = MediaQuery.of(context).size.width;
+          final screenHeight = MediaQuery.of(context).size.height;
+          return AlertDialog(
+            contentPadding: const EdgeInsets.only(top: 40),
+            elevation: 2,
+            //title: Center(child: const Text('Your team\'s answer is...')),
+            content: isCorrect
+                ? SizedBox(
+                    width: screenWidth / 3.5,
+                    height: screenHeight / 2.5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text('Your team\'s answer is...'),
+                        const Text(
+                          'CORRECT!',
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.green,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('CONGRATS,'),
+                            Text(
+                              'TEAM NAME HERE',
+                              style: AppTypography.textStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.pinkText),
+                            ),
+                            const Text('!'),
+                          ],
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('KEEP THE MOMENTUM.')],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '+200 POINTS!',
+                              style: AppTypography.textStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.pinkText),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 35.0),
+                          child: CustomOutlinedButton(
+                            borderColor: AppColors.pinkBackground,
+                            backgroundColor: AppColors.pinkText,
+                            text: 'CONTINUE',
+                            onTap: () {},
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                : SizedBox(
+                    width: screenWidth / 3.5,
+                    height: screenHeight / 2.5,
+                    child: Column(
+                      children: [
+                        const Text('Your team\'s answer is...'),
+                        const Text(
+                          'INCORRECT',
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Color.fromRGBO(214, 23, 23, 1),
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('SORRY,'),
+                            Text(
+                              'TEAM NAME HERE',
+                              style: AppTypography.textStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.pinkText),
+                            ),
+                            const Text('!'),
+                          ],
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Text('THE CORRECT ANSWER WAS')],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'CORRECT ANSWER',
+                              style: AppTypography.textStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.pinkText),
+                            ),
+                            const Text('.'),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 35.0),
+                          child: CustomOutlinedButton(
+                            borderColor: AppColors.pinkBackground,
+                            backgroundColor: AppColors.pinkText,
+                            text: 'CONTINUE',
+                            onTap: () {},
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+          );
+        },
+      );
 }
