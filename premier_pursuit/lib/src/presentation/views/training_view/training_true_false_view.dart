@@ -6,29 +6,26 @@ import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
-import 'package:premier_pursuit/src/presentation/widgets/challenge_widget.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 import 'package:premier_pursuit/src/utils/show_dialog.dart';
 
 @RoutePage()
-class TrainingView extends StatefulWidget {
-  const TrainingView({super.key});
+class TrainingTrueFalseView extends StatefulWidget {
+  const TrainingTrueFalseView({super.key});
 
   @override
-  State<TrainingView> createState() => _TrainingViewState();
+  State<TrainingTrueFalseView> createState() => _TrainingTrueFalseViewState();
 }
 
-class _TrainingViewState extends State<TrainingView> {
+class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isDrawerOpen = false;
 
   int _selectedOptionIndex = -1; // Initially no option is selected
 
   List<String> options = [
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4',
+    'ANSWER 1 GOES RIGHT HERE',
+    'ANSWER 2 GOES RIGHT HERE',
   ];
 
   @override
@@ -37,6 +34,7 @@ class _TrainingViewState extends State<TrainingView> {
       const SystemUiOverlayStyle(statusBarColor: AppColors.blueFont),
     );
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       onDrawerChanged: (isOpened) {
         setState(() {
@@ -92,43 +90,50 @@ class _TrainingViewState extends State<TrainingView> {
                       children: [
                         AppIcons.trivia,
                         Padding(
-                          padding: const EdgeInsets.only(left: 20.0, top: 5),
-                          child: training
-                        ),
+                            padding: const EdgeInsets.only(left: 20.0, top: 5),
+                            child: training),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
+                    padding: const EdgeInsets.only(left: 5.0),
+                    child: Text(
+                      'Trivia',
+                      style: AppTypography.textStyle(
+                        fontSize: 38,
+                        color: AppColors.pinkText,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10.0, top: 5),
+                    child: Text(
+                      'Choose the correct answer to complete',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10.0, top: 5),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Text(
-                            'Trivia',
-                            style: AppTypography.textStyle(
-                              fontSize: 35,
-                              color: AppColors.pinkText,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        Text(
+                          'the',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        Text(
+                          ' TRUE / FALSE statement ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: challenge
+                        Text(
+                          'below:',
+                          style: TextStyle(fontSize: 17),
                         ),
                       ],
                     ),
-                  ),
-                  Text(
-                    'Production Competition',
-                    style: AppTypography.textStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
@@ -140,13 +145,66 @@ class _TrainingViewState extends State<TrainingView> {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      'In 2015, Italy produced the most wine,\nwhich country was second?',
-                      softWrap: true,
-                      style: TextStyle(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w300,
-                      ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'TRUE ',
+                          softWrap: true,
+                          style: TextStyle(
+                              fontSize: 21,
+                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.pinkText,
+                              decorationColor: AppColors.pinkText,
+                              fontStyle: FontStyle.italic),
+                        ),
+                        Text(
+                          'or ',
+                          softWrap: true,
+                          style: TextStyle(
+                            fontSize: 21,
+                            color: AppColors.pinkText,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          'FALSE ',
+                          softWrap: true,
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            decorationColor: AppColors.pinkText,
+                            fontSize: 21,
+                            fontStyle: FontStyle.italic,
+                            color: AppColors.pinkText,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          '?',
+                          softWrap: true,
+                          style: TextStyle(
+                            fontSize: 21,
+                            color: AppColors.pinkText,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Question text goes here. ',
+                          softWrap: true,
+                          style: TextStyle(
+                            fontSize: 21,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.pinkText,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
@@ -166,14 +224,19 @@ class _TrainingViewState extends State<TrainingView> {
                           .toList(),
                     ),
                   ),
+                  //const Spacer(),
+                  SizedBox(
+                    height: screenHeight / 3.7,
+                  ),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: screenWidth / 15,
+                        width: screenWidth / 20,
                       ),
                       CustomOutlinedButton(
+                        width: screenWidth / 3,
                         borderColor: AppColors.pinkBackground,
                         backgroundColor: AppColors.pinkText,
                         text: 'SUBMIT ANSWER',

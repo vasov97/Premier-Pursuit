@@ -47,6 +47,15 @@ final companyName = Text(
   ),
 );
 
+final training = Text(
+  'TRAINING',
+  style: AppTypography.textStyle(
+    fontSize: 16,
+    color: AppColors.pinkText,
+    fontWeight: FontWeight.w600,
+  ),
+);
+
 final eventAdventureTitle = Text(
   'DeckerDevs Bicycle Team Building',
   style: AppTypography.textStyle(
@@ -56,6 +65,15 @@ final eventAdventureTitle = Text(
   ),
   softWrap: true,
   textAlign: TextAlign.left,
+);
+
+final challenge = Text(
+  'Challenge',
+  style: AppTypography.textStyle(
+    fontSize: 35,
+    color: AppColors.pinkText,
+    fontWeight: FontWeight.w500,
+  ),
 );
 
 const followTheRulesText = Padding(

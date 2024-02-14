@@ -45,6 +45,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashView(),
       );
     },
+    TrainingTrueFalseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TrainingTrueFalseView(),
+      );
+    },
     TrainingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -120,6 +126,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TrainingTrueFalseView]
+class TrainingTrueFalseRoute extends PageRouteInfo<void> {
+  const TrainingTrueFalseRoute({List<PageRouteInfo>? children})
+      : super(
+          TrainingTrueFalseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TrainingTrueFalseRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

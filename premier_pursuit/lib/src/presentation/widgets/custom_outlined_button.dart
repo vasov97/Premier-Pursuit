@@ -3,25 +3,28 @@ import 'package:premier_pursuit/src/config/const/app_sizes.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
-  const CustomOutlinedButton(
-      {super.key,
-      required this.borderColor,
-      required this.backgroundColor,
-      required this.text,
-      this.textColor,
-      required this.onTap});
+  const CustomOutlinedButton({
+    super.key,
+    required this.borderColor,
+    required this.backgroundColor,
+    required this.text,
+    this.textColor,
+    this.width,
+    required this.onTap,
+  });
 
   final Color? textColor;
   final Color borderColor;
   final Color backgroundColor;
   final String text;
   final Function()? onTap;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: outlineButtonHeight,
-      width: outlineButtonWidth,
+      width: width ?? outlineButtonWidth,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 2),
         child: ElevatedButton(
