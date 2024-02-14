@@ -43,7 +43,10 @@ class _EventAdventureViewState extends State<EventAdventureView> {
         backgroundColor: AppColors.drawerWhiteBackground,
         child: Row(
           children: [
-            BlueDrawer(screenWidth: screenWidth),
+            BlueDrawer(
+              screenWidth: screenWidth,
+              isMultiChallenge: false,
+            ),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Column(

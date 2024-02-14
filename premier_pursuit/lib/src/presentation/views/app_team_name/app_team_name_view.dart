@@ -43,7 +43,10 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
         backgroundColor: AppColors.drawerWhiteBackground,
         child: Row(
           children: [
-            BlueDrawer(screenWidth: screenWidth),
+            BlueDrawer(
+              screenWidth: screenWidth,
+              isMultiChallenge: false,
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

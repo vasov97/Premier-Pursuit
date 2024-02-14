@@ -55,7 +55,10 @@ class _TrainingViewState extends State<TrainingView> {
         backgroundColor: AppColors.drawerWhiteBackground,
         child: Row(
           children: [
-            BlueDrawer(screenWidth: screenWidth),
+            BlueDrawer(
+              screenWidth: screenWidth,
+              isMultiChallenge: false,
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Column(
@@ -92,9 +95,8 @@ class _TrainingViewState extends State<TrainingView> {
                       children: [
                         AppIcons.trivia,
                         Padding(
-                          padding: const EdgeInsets.only(left: 20.0, top: 5),
-                          child: training
-                        ),
+                            padding: const EdgeInsets.only(left: 20.0, top: 5),
+                            child: training),
                       ],
                     ),
                   ),
@@ -117,9 +119,8 @@ class _TrainingViewState extends State<TrainingView> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: challenge
-                        ),
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: challenge),
                       ],
                     ),
                   ),

@@ -53,7 +53,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
         backgroundColor: AppColors.drawerWhiteBackground,
         child: Row(
           children: [
-            BlueDrawer(screenWidth: screenWidth),
+            BlueDrawer(screenWidth: screenWidth, isMultiChallenge: true),
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Column(

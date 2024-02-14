@@ -44,7 +44,10 @@ class _AppInfoViewState extends State<AppInfoView> {
         backgroundColor: AppColors.drawerWhiteBackground,
         child: Row(
           children: [
-            BlueDrawer(screenWidth: screenWidth),
+            BlueDrawer(
+              screenWidth: screenWidth,
+              isMultiChallenge: false,
+            ),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Column(

@@ -59,7 +59,10 @@ class _AdminEventsViewState extends State<AdminEventsView> {
             //page1
             Row(
               children: <Widget>[
-                BlueDrawer(screenWidth: screenWidth),
+                BlueDrawer(
+                  screenWidth: screenWidth,
+                  isMultiChallenge: false,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -235,7 +238,10 @@ class _AdminEventsViewState extends State<AdminEventsView> {
             //page2
             Row(
               children: [
-                BlueDrawer(screenWidth: screenWidth),
+                BlueDrawer(
+                  screenWidth: screenWidth,
+                  isMultiChallenge: false,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -413,7 +419,10 @@ class _AdminEventsViewState extends State<AdminEventsView> {
             //page3
             Row(
               children: [
-                BlueDrawer(screenWidth: screenWidth),
+                BlueDrawer(
+                  screenWidth: screenWidth,
+                  isMultiChallenge: false,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
@@ -507,7 +516,10 @@ class _AdminEventsViewState extends State<AdminEventsView> {
             //page4
             Row(
               children: [
-                BlueDrawer(screenWidth: screenWidth),
+                BlueDrawer(
+                  screenWidth: screenWidth,
+                  isMultiChallenge: false,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Column(
