@@ -66,10 +66,20 @@ class AppIcons {
     width: 36.69,
     height: 35.19,
   );
+  static final Image greenCamera = Image.asset(
+    'assets/icons/green_camera.png',
+    width: 100.69,
+    height: 100.19,
+  );
   static final Image gift = Image.asset(
     'assets/icons/gift.png',
     width: 36.69,
     height: 35.19,
+  );
+  static final Image fwd = Image.asset(
+    'assets/icons/fwd.png',
+    width: 48,
+    height: 48,
   );
   static final Image search = Image.asset(
     'assets/icons/search.png',

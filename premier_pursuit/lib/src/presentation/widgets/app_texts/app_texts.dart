@@ -47,14 +47,14 @@ final companyName = Text(
   ),
 );
 
-final training = Text(
-  'TRAINING',
-  style: AppTypography.textStyle(
-    fontSize: 16,
-    color: AppColors.pinkText,
-    fontWeight: FontWeight.w600,
-  ),
-);
+training(Color color) => Text(
+      'TRAINING',
+      style: AppTypography.textStyle(
+        fontSize: 16,
+        color: color,
+        fontWeight: FontWeight.w600,
+      ),
+    );
 
 final eventAdventureTitle = Text(
   'DeckerDevs Bicycle Team Building',
@@ -71,7 +71,7 @@ final challenge = Text(
   'Challenge',
   style: AppTypography.textStyle(
     fontSize: 35,
-    color: AppColors.pinkText,
+    color: AppColors.pinkFont,
     fontWeight: FontWeight.w500,
   ),
 );

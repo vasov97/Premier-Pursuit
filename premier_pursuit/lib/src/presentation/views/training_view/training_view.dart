@@ -76,7 +76,7 @@ class _TrainingViewState extends State<TrainingView> {
                           height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadiusDirectional.circular(10),
-                            color: AppColors.pinkText,
+                            color: AppColors.pinkFont,
                           ),
                           child: IconButton(
                               padding: const EdgeInsets.only(left: 10),
@@ -96,7 +96,7 @@ class _TrainingViewState extends State<TrainingView> {
                         AppIcons.trivia,
                         Padding(
                             padding: const EdgeInsets.only(left: 20.0, top: 5),
-                            child: training),
+                            child: training(AppColors.pinkFont)),
                       ],
                     ),
                   ),
@@ -113,7 +113,7 @@ class _TrainingViewState extends State<TrainingView> {
                             'Trivia',
                             style: AppTypography.textStyle(
                               fontSize: 35,
-                              color: AppColors.pinkText,
+                              color: AppColors.pinkFont,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -136,7 +136,7 @@ class _TrainingViewState extends State<TrainingView> {
                     child: Container(
                       height: 1,
                       width: 140,
-                      color: AppColors.pinkText,
+                      color: AppColors.pinkFont,
                     ),
                   ),
                   const Padding(
@@ -176,7 +176,7 @@ class _TrainingViewState extends State<TrainingView> {
                       ),
                       CustomOutlinedButton(
                         borderColor: AppColors.pinkBackground,
-                        backgroundColor: AppColors.pinkText,
+                        backgroundColor: AppColors.pinkFont,
                         text: 'SUBMIT ANSWER',
                         onTap: () {
                           Navigator.of(context).pop();

@@ -71,7 +71,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                           height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadiusDirectional.circular(10),
-                            color: AppColors.pinkText,
+                            color: AppColors.pinkFont,
                           ),
                           child: IconButton(
                               padding: const EdgeInsets.only(left: 10),
@@ -91,7 +91,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                         AppIcons.trivia,
                         Padding(
                             padding: const EdgeInsets.only(left: 20.0, top: 5),
-                            child: training),
+                            child: training(AppColors.pinkFont)),
                       ],
                     ),
                   ),
@@ -101,7 +101,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                       'Trivia',
                       style: AppTypography.textStyle(
                         fontSize: 38,
-                        color: AppColors.pinkText,
+                        color: AppColors.pinkFont,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -140,7 +140,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                     child: Container(
                       height: 1,
                       width: 140,
-                      color: AppColors.pinkText,
+                      color: AppColors.pinkFont,
                     ),
                   ),
                   const Padding(
@@ -154,8 +154,8 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                               fontSize: 21,
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.w500,
-                              color: AppColors.pinkText,
-                              decorationColor: AppColors.pinkText,
+                              color: AppColors.pinkFont,
+                              decorationColor: AppColors.pinkFont,
                               fontStyle: FontStyle.italic),
                         ),
                         Text(
@@ -163,7 +163,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                           softWrap: true,
                           style: TextStyle(
                             fontSize: 21,
-                            color: AppColors.pinkText,
+                            color: AppColors.pinkFont,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -172,10 +172,10 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                           softWrap: true,
                           style: TextStyle(
                             decoration: TextDecoration.underline,
-                            decorationColor: AppColors.pinkText,
+                            decorationColor: AppColors.pinkFont,
                             fontSize: 21,
                             fontStyle: FontStyle.italic,
-                            color: AppColors.pinkText,
+                            color: AppColors.pinkFont,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -184,7 +184,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                           softWrap: true,
                           style: TextStyle(
                             fontSize: 21,
-                            color: AppColors.pinkText,
+                            color: AppColors.pinkFont,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -201,7 +201,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                           style: TextStyle(
                             fontSize: 21,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.pinkText,
+                            color: AppColors.pinkFont,
                           ),
                         ),
                       ],
@@ -238,7 +238,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                       CustomOutlinedButton(
                         width: screenWidth / 3,
                         borderColor: AppColors.pinkBackground,
-                        backgroundColor: AppColors.pinkText,
+                        backgroundColor: AppColors.pinkFont,
                         text: 'SUBMIT ANSWER',
                         onTap: () {
                           Navigator.of(context).pop();

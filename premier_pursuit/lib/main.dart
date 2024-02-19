@@ -1,9 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'package:premier_pursuit/src/config/theme/app_theme.dart';
 
-void main() {
+void main() async {
   runApp(const MainApp());
 }
 

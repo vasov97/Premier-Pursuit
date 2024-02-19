@@ -3,6 +3,7 @@ import 'package:premier_pursuit/src/presentation/views/admin/admin_events_view.d
 import 'package:premier_pursuit/src/presentation/views/app_info_view.dart/app_info_view.dart';
 import 'package:premier_pursuit/src/presentation/views/app_team_name/app_team_name_view.dart';
 import 'package:premier_pursuit/src/presentation/views/event/event_adventure_view.dart';
+import 'package:premier_pursuit/src/presentation/views/photo_challege/photo_challenge_view.dart';
 import 'package:premier_pursuit/src/presentation/views/splash/splash_view.dart';
 import 'package:premier_pursuit/src/presentation/views/training_view/training_true_false_view.dart';
 import 'package:premier_pursuit/src/presentation/views/training_view/training_view.dart';
@@ -20,6 +21,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(path: '/app-team-name', page: AppTeamNameRoute.page),
         AutoRoute(path: '/training', page: TrainingRoute.page),
         AutoRoute(path: '/true-false', page: TrainingTrueFalseRoute.page),
+        AutoRoute(path: '/photo-challenge', page: PhotoChallengeRoute.page),
       ];
 }
 

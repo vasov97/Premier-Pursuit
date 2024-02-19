@@ -37,7 +37,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                             style: AppTypography.textStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.pinkText),
+                                color: AppColors.pinkFont),
                           ),
                           const Text('!'),
                         ],
@@ -54,7 +54,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                             style: AppTypography.textStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.pinkText),
+                                color: AppColors.pinkFont),
                           ),
                         ],
                       ),
@@ -62,7 +62,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                         padding: const EdgeInsets.only(top: 35.0),
                         child: CustomOutlinedButton(
                           borderColor: AppColors.pinkBackground,
-                          backgroundColor: AppColors.pinkText,
+                          backgroundColor: AppColors.pinkFont,
                           text: 'CONTINUE',
                           onTap: () {},
                         ),
@@ -92,7 +92,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                             style: AppTypography.textStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.pinkText),
+                                color: AppColors.pinkFont),
                           ),
                           const Text('!'),
                         ],
@@ -109,7 +109,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                             style: AppTypography.textStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.pinkText),
+                                color: AppColors.pinkFont),
                           ),
                           const Text('.'),
                         ],
@@ -118,7 +118,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                         padding: const EdgeInsets.only(top: 35.0),
                         child: CustomOutlinedButton(
                           borderColor: AppColors.pinkBackground,
-                          backgroundColor: AppColors.pinkText,
+                          backgroundColor: AppColors.pinkFont,
                           text: 'CONTINUE',
                           onTap: () {
                             Navigator.of(context).pop();

@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EventAdventureView(),
       );
     },
+    PhotoChallengeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PhotoChallengeView(),
+      );
+    },
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -112,6 +118,20 @@ class EventAdventureRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'EventAdventureRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PhotoChallengeView]
+class PhotoChallengeRoute extends PageRouteInfo<void> {
+  const PhotoChallengeRoute({List<PageRouteInfo>? children})
+      : super(
+          PhotoChallengeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PhotoChallengeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

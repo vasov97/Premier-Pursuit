@@ -45,7 +45,7 @@ class _AdminEventsViewState extends State<AdminEventsView> {
         elevation: 0,
       ),
       drawer: Drawer(
-        width: _currentPage > 2 ? screenWidth : screenWidth * 0.5,
+        width: _currentPage > 2 ? screenWidth : screenWidth * 0.55,
         backgroundColor: Colors.white.withOpacity(0.9),
         child: PageView(
           controller: _pageController,
