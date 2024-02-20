@@ -9,6 +9,9 @@ class AppImages {
   );
   static Image loadingText = Image.asset('assets/images/loading_text.png');
 
+  static Image collectionBackground =
+      Image.asset('assets/images/collection.png');
+
   static Image ruleOne = Image.asset(
     'assets/images/rule_one.png',
     width: 300,
