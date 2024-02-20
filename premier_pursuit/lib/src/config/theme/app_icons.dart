@@ -61,10 +61,22 @@ class AppIcons {
     width: 60.34,
     color: AppColors.orangeOutline,
   );
-  static final Image camera = Image.asset(
+  static Image camera = Image.asset(
     'assets/icons/camera.png',
     width: 36.69,
     height: 35.19,
+  );
+  static final Image purpleYt = Image.asset(
+    'assets/icons/purple_yt.png',
+    width: 100.69,
+    height: 100.19,
+  );
+
+  static Image purpleCamera = Image.asset(
+    'assets/icons/camera.png',
+    width: 36.69,
+    height: 35.19,
+    color: AppColors.purpleFont,
   );
   static final Image greenCamera = Image.asset(
     'assets/icons/green_camera.png',

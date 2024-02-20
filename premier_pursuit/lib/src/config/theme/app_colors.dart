@@ -16,5 +16,8 @@ class AppColors {
 
   static const Color greenFont = Color.fromRGBO(0, 104, 56, 1);
 
+  static const Color purpleFont = Color.fromRGBO(156, 42, 140, 1);
+  static const Color lightPurple = Color.fromRGBO(255, 239, 253, 1);
+
   static Color drawerWhiteBackground = Colors.white.withOpacity(0.9);
 }

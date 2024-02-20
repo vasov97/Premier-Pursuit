@@ -59,16 +59,19 @@ class SideDrawerIcons extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 70,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(12.0),
+          child: GestureDetector(
+            onTap: () => appRouter.push(const VideoChallengeRoute()),
+            child: Container(
+              height: 70,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12.0),
+                ),
               ),
+              width: 66.8,
+              child: AppIcons.youtube,
             ),
-            width: 66.8,
-            child: AppIcons.youtube,
           ),
         ),
         Padding(

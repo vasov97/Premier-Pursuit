@@ -56,6 +56,7 @@ flutter:
     - assets/icons/gift.png
     - assets/icons/search.png
     - assets/icons/youtube.png
+    - assets/icons/purple_yt.png
     - assets/icons/help.png
 
   fonts:

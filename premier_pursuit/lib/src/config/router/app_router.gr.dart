@@ -63,6 +63,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TrainingView(),
       );
     },
+    VideoChallengeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const VideoChallengeView(),
+      );
+    },
   };
 }
 
@@ -174,6 +180,20 @@ class TrainingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'TrainingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [VideoChallengeView]
+class VideoChallengeRoute extends PageRouteInfo<void> {
+  const VideoChallengeRoute({List<PageRouteInfo>? children})
+      : super(
+          VideoChallengeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VideoChallengeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
