@@ -336,7 +336,7 @@ class _PhotoChallengeViewState extends State<PhotoChallengeView> {
                       ),
                     )
                   : Container(
-                      color: const Color.fromRGBO(220, 255, 239, 1),
+                      color: AppColors.lightGreen,
                     ),
               _pickedImageFile == null
                   ? Container(
@@ -356,10 +356,10 @@ class _PhotoChallengeViewState extends State<PhotoChallengeView> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 75),
+                              vertical: 150, horizontal: 75),
                           child: Container(
-                            height: screenHeight * 0.3,
-                            width: screenHeight * 0.2,
+                            height: screenHeight * 0.55,
+                            width: screenWidth * 0.45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               image: DecorationImage(
@@ -441,13 +441,18 @@ class _PhotoChallengeViewState extends State<PhotoChallengeView> {
                             style: AppTypography.textStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.w300,
+                              color: _pickedImageFile == null
+                                  ? Colors.white
+                                  : AppColors.greenFont,
                             ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            color: Colors.white,
+                            color: _pickedImageFile == null
+                                ? Colors.white
+                                : AppColors.greenFont,
                             height: 10,
                             width: 2,
                           ),
@@ -459,6 +464,9 @@ class _PhotoChallengeViewState extends State<PhotoChallengeView> {
                             style: AppTypography.textStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
+                              color: _pickedImageFile == null
+                                  ? Colors.white
+                                  : AppColors.greenFont,
                             ),
                           ),
                         ),

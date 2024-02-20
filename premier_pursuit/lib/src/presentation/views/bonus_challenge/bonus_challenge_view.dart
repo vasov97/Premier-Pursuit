@@ -1,26 +1,26 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
-import 'dart:io';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
-import 'package:camera/camera.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 
 @RoutePage()
-class VideoChallengeView extends StatefulWidget {
-  const VideoChallengeView({super.key});
+class BonusChallengeView extends StatefulWidget {
+  const BonusChallengeView({super.key});
 
   @override
-  State<VideoChallengeView> createState() => _VideoChallengeViewState();
+  State<BonusChallengeView> createState() => _BonusChallengeViewState();
 }
 
-class _VideoChallengeViewState extends State<VideoChallengeView> {
+class _BonusChallengeViewState extends State<BonusChallengeView> {
   File? _pickedVideoFile;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isDrawerOpen = false;
@@ -49,10 +49,10 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
         width: screenWidth * 0.55,
         backgroundColor: _pickedVideoFile == null
             ? AppColors.drawerWhiteBackground
-            : AppColors.purpleFont,
+            : AppColors.yellowFont,
         child: Row(
           children: [
-            BlueDrawer(screenWidth: screenWidth, isMultiChallenge: true),
+            BlueDrawer(screenWidth: screenWidth, isMultiChallenge: false),
             _pickedVideoFile == null
                 ? Padding(
                     padding: const EdgeInsets.only(left: 20.0),
@@ -72,7 +72,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                                 decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadiusDirectional.circular(10),
-                                  color: AppColors.purpleFont,
+                                  color: AppColors.yellowFont,
                                 ),
                                 child: IconButton(
                                     padding: const EdgeInsets.only(left: 10),
@@ -89,21 +89,17 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                           ),
                           child: Row(
                             children: [
-                              AppIcons.purpleCamera,
-                              Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 20.0, top: 5),
-                                  child: training(AppColors.purpleFont)),
+                              AppIcons.gift,
                             ],
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 5.0),
                           child: Text(
-                            'Video\nChallenge',
+                            'Bonus\nChallenge',
                             style: AppTypography.textStyle(
                               fontSize: 38,
-                              color: AppColors.purpleFont,
+                              color: AppColors.yellowFont,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -111,7 +107,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                         const Padding(
                           padding: EdgeInsets.only(left: 10.0, top: 5),
                           child: Text(
-                            'Hotel California',
+                            'Testimonial',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
@@ -124,91 +120,75 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                           child: Container(
                             height: 1,
                             width: 140,
-                            color: AppColors.purpleFont,
+                            color: AppColors.yellowFont,
                           ),
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(left: 5.0, top: 5),
-                              child: Text(
-                                '\“So I called up the Captain,\nPlease bring me my wine.\n’He said, \‘We haven\'t had that\nspirit here since nineteen sixty nine.\’\" ',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 10.0, top: 30),
-                              child: Text(
-                                'Shoot a 10-15 second video of your\nteam performing the Eagles hit,',
-                                softWrap: true,
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  height: 1.3,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
+                        SizedBox(
+                          height: screenHeight * 0.6,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Row(
                                 children: [
-                                  Text(
-                                    '\“Hotel California.\”',
-                                    softWrap: true,
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      height: 1.3,
-                                      fontWeight: FontWeight.w600,
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.0, top: 5),
+                                    child: Text(
+                                      'Shoot a video',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
-                                  Text(
-                                    'Be sure to include',
-                                    softWrap: true,
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      height: 1.3,
-                                      fontWeight: FontWeight.w300,
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(left: 10.0, top: 5),
+                                    child: Text(
+                                      'up to 15 seconds with',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w300,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                left: 10.0,
-                              ),
-                              child: Text(
-                                'some fun choreography!',
-                                softWrap: true,
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  height: 1.3,
-                                  fontWeight: FontWeight.w300,
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10.0, top: 5),
+                                child: Text(
+                                  'your team describing their experience',
+                                  softWrap: true,
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10.0, top: 30),
-                              child: Text(
-                                'TAP TO TAKE YOUR TEAM VIDEO:',
-                                style: AppTypography.textStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.purpleFont),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10.0, top: 5),
+                                child: Text(
+                                  'with today\'s event.',
+                                  softWrap: true,
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
                               ),
-                            ),
-                            IconButton(
-                              onPressed: () => _pickVideo(),
-                              icon: AppIcons.purpleYt,
-                            ),
-                          ],
+                              SizedBox(
+                                height: screenHeight * 0.3,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                                child: CustomOutlinedButton(
+                                    borderColor: AppColors.yellowBorder,
+                                    width: screenWidth * 0.36,
+                                    backgroundColor: AppColors.yellowFont,
+                                    text: 'SHOOT YOUR TEAM VIDEO',
+                                    onTap: () {}),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -237,7 +217,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                                 ),
                                 child: IconButton(
                                     padding: const EdgeInsets.only(left: 10),
-                                    color: AppColors.purpleFont,
+                                    color: AppColors.yellowFont,
                                     icon: const Icon(Icons.arrow_back_ios),
                                     onPressed: () {}),
                               ),
@@ -257,12 +237,27 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                         Padding(
                           padding: const EdgeInsets.only(left: 5.0),
                           child: Text(
-                            'Check Out\nYour Video!',
+                            'Check Out',
                             style: AppTypography.textStyle(
                               fontSize: 38,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Your Photo!',
+                                style: AppTypography.textStyle(
+                                  fontSize: 38,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         const Padding(
@@ -302,20 +297,21 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                             Padding(
                               padding: const EdgeInsets.only(top: 20.0),
                               child: CustomOutlinedButton(
-                                textColor: AppColors.purpleFont,
-                                borderColor: AppColors.lightPurple,
+                                textColor: AppColors.yellowFont,
+                                borderColor: AppColors.yellowBorder,
                                 backgroundColor: Colors.white,
                                 text: 'TRY AGAIN!',
-                                onTap: () => _pickVideo(),
+                                onTap: () =>
+                                    appRouter.push(const AppTeamNameRoute()),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 20.0),
                               child: CustomOutlinedButton(
-                                textColor: AppColors.purpleFont,
-                                borderColor: AppColors.lightPurple,
+                                textColor: AppColors.yellowFont,
+                                borderColor: AppColors.yellowBorder,
                                 backgroundColor: Colors.white,
-                                text: 'SUBMIT VIDEO',
+                                text: 'SUBMIT PHOTO',
                                 onTap: () =>
                                     appRouter.push(const AppTeamNameRoute()),
                               ),
@@ -336,14 +332,13 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                   ? Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image:
-                              AssetImage('assets/images/photo_challenge.png'),
+                          image: AssetImage('assets/images/bonus.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
                     )
                   : Container(
-                      color: AppColors.lightPurple,
+                      color: AppColors.lightYellow,
                     ),
               _pickedVideoFile == null
                   ? Container(
@@ -363,10 +358,10 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 75),
+                              vertical: 150, horizontal: 75),
                           child: Container(
-                            height: screenHeight * 0.3,
-                            width: screenWidth * 0.2,
+                            height: screenHeight * 0.55,
+                            width: screenWidth * 0.45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               image: DecorationImage(
@@ -411,7 +406,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                           width: 150,
                           height: 54,
                           decoration: BoxDecoration(
-                            color: AppColors.purpleFont,
+                            color: AppColors.yellowFont,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Row(
@@ -436,6 +431,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15.0, right: 15),
                     child: Row(
+                      //crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: _isDrawerOpen
                           ? MainAxisAlignment.end
                           : MainAxisAlignment.center,
@@ -449,7 +445,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                               fontWeight: FontWeight.w300,
                               color: _pickedVideoFile == null
                                   ? Colors.white
-                                  : AppColors.purpleFont,
+                                  : AppColors.yellowFont,
                             ),
                           ),
                         ),
@@ -458,7 +454,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                           child: Container(
                             color: _pickedVideoFile == null
                                 ? Colors.white
-                                : AppColors.purpleFont,
+                                : AppColors.yellowFont,
                             height: 10,
                             width: 2,
                           ),
@@ -472,7 +468,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                               fontWeight: FontWeight.w600,
                               color: _pickedVideoFile == null
                                   ? Colors.white
-                                  : AppColors.purpleFont,
+                                  : AppColors.yellowFont,
                             ),
                           ),
                         ),

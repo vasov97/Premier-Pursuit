@@ -40,6 +40,7 @@ flutter:
     - assets/images/photo_challenge.png
     - assets/images/hotspot_back.png
     - assets/images/collection.png
+    - assets/images/bonus.png
     - assets/icons/Group 849.png
     - assets/icons/admin_icon.png
     - assets/icons/fwd.png

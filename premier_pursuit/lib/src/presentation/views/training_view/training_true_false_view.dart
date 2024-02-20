@@ -226,7 +226,7 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
                   ),
                   //const Spacer(),
                   SizedBox(
-                    height: screenHeight / 3.7,
+                    height: screenHeight / 4,
                   ),
                   Row(
                     //crossAxisAlignment: CrossAxisAlignment.center,

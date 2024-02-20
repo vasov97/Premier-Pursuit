@@ -88,6 +88,12 @@ class AppIcons {
     width: 36.69,
     height: 35.19,
   );
+  static final Image giftWhite = Image.asset(
+    'assets/icons/gift.png',
+    width: 36.69,
+    height: 35.19,
+    color: Colors.white,
+  );
   static final Image fwd = Image.asset(
     'assets/icons/fwd.png',
     width: 48,

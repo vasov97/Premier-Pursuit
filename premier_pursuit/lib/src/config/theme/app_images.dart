@@ -21,6 +21,10 @@ class AppImages {
     'assets/images/photo_challenge.png',
   );
 
+  static Image bonusChalenge = Image.asset(
+    'assets/images/bonus.png',
+  );
+
   static Image hotspotBackground = Image.asset(
     'assets/images/hotspot_back.png',
   );
