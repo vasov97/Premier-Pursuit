@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:premier_pursuit/src/presentation/challenges_grid_view/challenges_grid_view.dart';
 import 'package:premier_pursuit/src/presentation/collection_challenge/collection_challenge_view.dart';
 import 'package:premier_pursuit/src/presentation/video_challenge_view/video_challenge_view.dart';
 import 'package:premier_pursuit/src/presentation/views/admin/admin_events_view.dart';
@@ -32,6 +33,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             path: '/collection-challenge', page: CollectionChallengeRoute.page),
         AutoRoute(path: '/bonus-challenge', page: BonusChallengeRoute.page),
+        AutoRoute(path: '/grid-view-challenge', page: ChallengesGridRoute.page),
       ];
 }
 

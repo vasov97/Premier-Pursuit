@@ -58,4 +58,9 @@ class AppImages {
     'assets/images/rule_six.png',
     width: 300,
   );
+
+  static Image gridImage(int i) => Image.asset(
+        'assets/images/$i.png',
+        fit: BoxFit.fill,
+      );
 }

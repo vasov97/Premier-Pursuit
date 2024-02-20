@@ -14,16 +14,19 @@ class SideDrawerIcons extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 70,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(12.0),
+          child: GestureDetector(
+            onTap: () => appRouter.push(const ChallengesGridRoute()),
+            child: Container(
+              height: 70,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12.0),
+                ),
               ),
+              width: 66.8,
+              child: AppImages.helpCircle,
             ),
-            width: 66.8,
-            child: AppImages.helpCircle,
           ),
         ),
         Padding(

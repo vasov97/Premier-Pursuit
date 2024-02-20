@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BonusChallengeView(),
       );
     },
+    ChallengesGridRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ChallengesGridView(),
+      );
+    },
     CollectionChallengeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -142,6 +148,20 @@ class BonusChallengeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'BonusChallengeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChallengesGridView]
+class ChallengesGridRoute extends PageRouteInfo<void> {
+  const ChallengesGridRoute({List<PageRouteInfo>? children})
+      : super(
+          ChallengesGridRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChallengesGridRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
