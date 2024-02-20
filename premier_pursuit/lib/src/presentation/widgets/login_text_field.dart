@@ -4,17 +4,19 @@ import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 
 class LoginTextField extends StatelessWidget {
-  const LoginTextField({super.key, required this.text});
+  const LoginTextField(
+      {super.key, required this.text, required this.textColor});
 
   final String text;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 25),
       child: SizedBox(
-        width: 450,
-        height: 85,
+        width: 440,
+        height: 80,
         child: Material(
           elevation: 5,
           borderRadius: BorderRadius.circular(10),
@@ -30,11 +32,12 @@ class LoginTextField extends StatelessWidget {
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.5,
-                    color: AppColors.orangeBackground,
+                    color: textColor,
                   ),
                   hintText: text,
                   border: InputBorder.none,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 30)),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 22, horizontal: 10)),
             ),
           ),
         ),

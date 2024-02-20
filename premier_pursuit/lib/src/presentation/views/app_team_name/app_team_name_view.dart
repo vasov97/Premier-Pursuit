@@ -82,6 +82,7 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
                 const Padding(
                   padding: EdgeInsets.only(left: 30),
                   child: LoginTextField(
+                    textColor: AppColors.orangeBackground,
                     text: 'ENTER TEAM NAME HERE',
                   ),
                 ),

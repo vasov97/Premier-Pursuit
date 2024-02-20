@@ -14,7 +14,13 @@ class AppImages {
     width: 300,
   );
 
-  static Image photoChalenge = Image.asset('assets/image/photo_challenge.png');
+  static Image photoChalenge = Image.asset(
+    'assets/images/photo_challenge.png',
+  );
+
+  static Image hotspotBackground = Image.asset(
+    'assets/images/hotspot_back.png',
+  );
 
   static Image ruleTwo = Image.asset(
     'assets/images/rule_two.png',

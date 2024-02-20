@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EventAdventureView(),
       );
     },
+    HotspotChallengeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HotspotChallengeView(),
+      );
+    },
     PhotoChallengeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -124,6 +130,20 @@ class EventAdventureRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'EventAdventureRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HotspotChallengeView]
+class HotspotChallengeRoute extends PageRouteInfo<void> {
+  const HotspotChallengeRoute({List<PageRouteInfo>? children})
+      : super(
+          HotspotChallengeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HotspotChallengeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

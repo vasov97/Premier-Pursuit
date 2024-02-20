@@ -119,6 +119,7 @@ class _SplashViewState extends State<SplashView> {
                                   ),
                                 ),
                                 const LoginTextField(
+                                  textColor: AppColors.orangeBackground,
                                   text: adminPasswordHint,
                                 ),
                                 Padding(
