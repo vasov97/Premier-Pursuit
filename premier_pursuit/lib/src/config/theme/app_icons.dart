@@ -133,10 +133,9 @@ class AppIcons {
     height: 35.19,
   );
   static final SvgPicture triviaWhite = SvgPicture.asset(
-    'assets/icons/trivia.svg',
+    'assets/icons/trivia_white.png',
     width: 36.69,
     height: 35.19,
-    color: Colors.white,
   );
   static final SvgPicture hotspot = SvgPicture.asset(
     'assets/icons/hotspot.svg',
