@@ -57,6 +57,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EndScoreView(),
       );
     },
+    EndRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EndView(),
+      );
+    },
     EventAdventureRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -196,6 +202,20 @@ class EndScoreRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'EndScoreRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EndView]
+class EndRoute extends PageRouteInfo<void> {
+  const EndRoute({List<PageRouteInfo>? children})
+      : super(
+          EndRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EndRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

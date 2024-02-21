@@ -73,9 +73,16 @@ class _SplashViewState extends State<SplashView> {
                             CustomOutlinedButton(
                                 borderColor: AppColors.orangeOutline,
                                 backgroundColor: AppColors.orangeBackground,
-                                text: 'End screen',
+                                text: 'End score',
                                 onTap: () {
                                   appRouter.push(const EndScoreRoute());
+                                }),
+                            CustomOutlinedButton(
+                                borderColor: AppColors.orangeOutline,
+                                backgroundColor: AppColors.orangeBackground,
+                                text: 'End',
+                                onTap: () {
+                                  appRouter.push(const EndRoute());
                                 }),
                             const SizedBox(height: 20),
                             const SizedBox(
