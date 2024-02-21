@@ -70,6 +70,13 @@ class _SplashViewState extends State<SplashView> {
                                     _showAdmin = true;
                                   });
                                 }),
+                            CustomOutlinedButton(
+                                borderColor: AppColors.orangeOutline,
+                                backgroundColor: AppColors.orangeBackground,
+                                text: 'End screen',
+                                onTap: () {
+                                  appRouter.push(const EndScoreRoute());
+                                }),
                             const SizedBox(height: 20),
                             const SizedBox(
                               height: 40,

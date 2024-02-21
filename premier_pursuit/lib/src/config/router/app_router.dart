@@ -6,6 +6,7 @@ import 'package:premier_pursuit/src/presentation/views/admin/admin_events_view.d
 import 'package:premier_pursuit/src/presentation/views/app_info_view.dart/app_info_view.dart';
 import 'package:premier_pursuit/src/presentation/views/app_team_name/app_team_name_view.dart';
 import 'package:premier_pursuit/src/presentation/views/bonus_challenge/bonus_challenge_view.dart';
+import 'package:premier_pursuit/src/presentation/views/end_score/end_score_view.dart';
 import 'package:premier_pursuit/src/presentation/views/event/event_adventure_view.dart';
 import 'package:premier_pursuit/src/presentation/views/hotspot_challenge/hotspot_challenge_view.dart';
 import 'package:premier_pursuit/src/presentation/views/photo_challege/photo_challenge_view.dart';
@@ -34,6 +35,7 @@ class AppRouter extends _$AppRouter {
             path: '/collection-challenge', page: CollectionChallengeRoute.page),
         AutoRoute(path: '/bonus-challenge', page: BonusChallengeRoute.page),
         AutoRoute(path: '/grid-view-challenge', page: ChallengesGridRoute.page),
+        AutoRoute(path: '/end-score', page: EndScoreRoute.page),
       ];
 }
 

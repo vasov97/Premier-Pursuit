@@ -469,7 +469,11 @@ class _ChallengesGridViewState extends State<ChallengesGridView> {
           ],
         ),
       ),
-      BlueDrawer(screenWidth: screenWidth * 0.7, isMultiChallenge: true)
+      Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child:
+            BlueDrawer(screenWidth: screenWidth * 0.7, isMultiChallenge: true),
+      )
     ]);
   }
 

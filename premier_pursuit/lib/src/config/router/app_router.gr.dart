@@ -51,6 +51,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CollectionChallengeView(),
       );
     },
+    EndScoreRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EndScoreView(),
+      );
+    },
     EventAdventureRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -176,6 +182,20 @@ class CollectionChallengeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CollectionChallengeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EndScoreView]
+class EndScoreRoute extends PageRouteInfo<void> {
+  const EndScoreRoute({List<PageRouteInfo>? children})
+      : super(
+          EndScoreRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EndScoreRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
