@@ -186,14 +186,14 @@ final eventFacilitator = Text(
   ),
 );
 
-final information = Text(
-  'Information',
-  style: AppTypography.textStyle(
-    fontSize: 34,
-    fontWeight: FontWeight.w500,
-    color: AppColors.blueFont,
-  ),
-);
+Text information(double font) => Text(
+      'Information',
+      style: AppTypography.textStyle(
+        fontSize: font,
+        fontWeight: FontWeight.w500,
+        color: AppColors.blueFont,
+      ),
+    );
 
 final eventRules = Text(
   'Event Rules',

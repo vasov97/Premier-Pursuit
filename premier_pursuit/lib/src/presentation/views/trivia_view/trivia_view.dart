@@ -6,26 +6,29 @@ import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
+import 'package:premier_pursuit/src/presentation/widgets/challenge_widget.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 import 'package:premier_pursuit/src/utils/show_dialog.dart';
 
 @RoutePage()
-class TrainingTrueFalseView extends StatefulWidget {
-  const TrainingTrueFalseView({super.key});
+class TriviaView extends StatefulWidget {
+  const TriviaView({super.key});
 
   @override
-  State<TrainingTrueFalseView> createState() => _TrainingTrueFalseViewState();
+  State<TriviaView> createState() => _TriviaViewState();
 }
 
-class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
+class _TriviaViewState extends State<TriviaView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isDrawerOpen = false;
 
   int _selectedOptionIndex = -1; // Initially no option is selected
 
   List<String> options = [
-    'ANSWER 1 GOES RIGHT HERE',
-    'ANSWER 2 GOES RIGHT HERE',
+    'Option 1',
+    'Option 2',
+    'Option 3',
+    'Option 4',
   ];
 
   @override
@@ -34,7 +37,6 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
       const SystemUiOverlayStyle(statusBarColor: AppColors.blueFont),
     );
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       onDrawerChanged: (isOpened) {
         setState(() {
@@ -47,212 +49,154 @@ class _TrainingTrueFalseViewState extends State<TrainingTrueFalseView> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      drawer: Drawer(
-        elevation: 0,
-        width: screenWidth * 0.55,
-        backgroundColor: AppColors.drawerWhiteBackground,
-        child: Row(
-          children: [
-            BlueDrawer(screenWidth: screenWidth, isMultiChallenge: true),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * 0.33,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadiusDirectional.circular(10),
-                            color: AppColors.pinkFont,
-                          ),
-                          child: IconButton(
+      drawer: Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child: Drawer(
+          elevation: 0,
+          width: screenWidth * 0.55,
+          backgroundColor: AppColors.drawerWhiteBackground,
+          child: Row(
+            children: [
+              BlueDrawer(
+                screenWidth: screenWidth,
+                isMultiChallenge: false,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: screenWidth * 0.33,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadiusDirectional.circular(10),
+                              color: AppColors.pinkFont,
+                            ),
+                            child: IconButton(
                               padding: const EdgeInsets.only(left: 10),
                               color: Colors.white,
                               icon: const Icon(Icons.arrow_back_ios),
-                              onPressed: () {}),
+                              onPressed: () => Navigator.pop,
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                    child: Row(
-                      children: [
-                        AppIcons.trivia,
-                        Padding(
-                            padding: const EdgeInsets.only(left: 20.0, top: 5),
-                            child: training(AppColors.pinkFont)),
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
-                    child: Text(
-                      'Trivia',
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                      ),
+                      child: Row(
+                        children: [
+                          AppIcons.trivia,
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 5),
+                              child: training(AppColors.pinkFont)),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: Text(
+                              'Trivia',
+                              style: AppTypography.textStyle(
+                                fontSize: 35,
+                                color: AppColors.pinkFont,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: challenge),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      'Production Competition',
                       style: AppTypography.textStyle(
-                        fontSize: 38,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Container(
+                        height: 1,
+                        width: 140,
                         color: AppColors.pinkFont,
-                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10.0, top: 5),
-                    child: Text(
-                      'Choose the correct answer to complete',
-                      style: TextStyle(fontSize: 17),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: Text(
+                        'In 2015, Italy produced the most wine,\nwhich country was second?',
+                        softWrap: true,
+                        style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10.0, top: 5),
-                    child: Row(
-                      children: [
-                        Text(
-                          'the',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        Text(
-                          ' TRUE / FALSE statement ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 17,
-                          ),
-                        ),
-                        Text(
-                          'below:',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        //vertical: 2.0,
+                        horizontal: 4,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: options
+                            .asMap()
+                            .entries
+                            .map(
+                              (question) => buildOption(
+                                  question.key, question.value, screenWidth),
+                            )
+                            .toList(),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Container(
-                      height: 1,
-                      width: 140,
-                      color: AppColors.pinkFont,
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          'TRUE ',
-                          softWrap: true,
-                          style: TextStyle(
-                              fontSize: 21,
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.pinkFont,
-                              decorationColor: AppColors.pinkFont,
-                              fontStyle: FontStyle.italic),
-                        ),
-                        Text(
-                          'or ',
-                          softWrap: true,
-                          style: TextStyle(
-                            fontSize: 21,
-                            color: AppColors.pinkFont,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          'FALSE ',
-                          softWrap: true,
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColors.pinkFont,
-                            fontSize: 21,
-                            fontStyle: FontStyle.italic,
-                            color: AppColors.pinkFont,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          '?',
-                          softWrap: true,
-                          style: TextStyle(
-                            fontSize: 21,
-                            color: AppColors.pinkFont,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Question text goes here. ',
-                          softWrap: true,
-                          style: TextStyle(
-                            fontSize: 21,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.pinkFont,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8.0,
-                      horizontal: 4,
-                    ),
-                    child: Column(
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: options
-                          .asMap()
-                          .entries
-                          .map(
-                            (question) => buildOption(
-                                question.key, question.value, screenWidth),
-                          )
-                          .toList(),
-                    ),
-                  ),
-                  //const Spacer(),
-                  SizedBox(
-                    height: screenHeight / 4,
-                  ),
-                  Row(
-                    //crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: screenWidth / 20,
-                      ),
-                      CustomOutlinedButton(
-                        width: screenWidth / 3,
-                        borderColor: AppColors.pinkBackground,
-                        backgroundColor: AppColors.pinkFont,
-                        text: 'SUBMIT ANSWER',
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          _selectedOptionIndex == 2
-                              ? showAnswerDialog(context, isCorrect: true)
-                              : showAnswerDialog(context, isCorrect: false);
-                        },
-                      ),
-                    ],
-                  )
-                ],
+                      children: [
+                        SizedBox(
+                          width: screenWidth / 25,
+                        ),
+                        CustomOutlinedButton(
+                          borderColor: AppColors.pinkBackground,
+                          backgroundColor: AppColors.pinkFont,
+                          text: 'SUBMIT ANSWER',
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            _selectedOptionIndex == 2
+                                ? showAnswerDialog(context, isCorrect: true)
+                                : showAnswerDialog(context, isCorrect: false);
+                          },
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       body: Stack(

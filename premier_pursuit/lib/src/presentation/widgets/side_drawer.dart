@@ -17,14 +17,14 @@ class SideDrawerIcons extends StatelessWidget {
           child: GestureDetector(
             onTap: () => appRouter.push(const ChallengesGridRoute()),
             child: Container(
-              height: 70,
+              height: 65,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
               ),
-              width: 66.8,
+              width: 60,
               child: AppImages.helpCircle,
             ),
           ),
@@ -32,14 +32,15 @@ class SideDrawerIcons extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            height: 70,
+            padding: const EdgeInsets.all(11),
+            height: 65,
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(
                 Radius.circular(12.0),
               ),
             ),
-            width: 66.8,
+            width: 60,
             child: AppIcons.trivia,
           ),
         ),
@@ -48,14 +49,14 @@ class SideDrawerIcons extends StatelessWidget {
           child: GestureDetector(
             onTap: () => appRouter.push(const PhotoChallengeRoute()),
             child: Container(
-              height: 70,
+              height: 65,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
               ),
-              width: 66.8,
+              width: 60,
               child: AppIcons.camera,
             ),
           ),
@@ -65,14 +66,14 @@ class SideDrawerIcons extends StatelessWidget {
           child: GestureDetector(
             onTap: () => appRouter.push(const VideoChallengeRoute()),
             child: Container(
-              height: 70,
+              height: 65,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
               ),
-              width: 66.8,
+              width: 60,
               child: AppIcons.youtube,
             ),
           ),
@@ -82,14 +83,15 @@ class SideDrawerIcons extends StatelessWidget {
           child: GestureDetector(
             onTap: () => appRouter.push(const HotspotChallengeRoute()),
             child: Container(
-              height: 70,
+              height: 65,
+              padding: const EdgeInsets.all(10),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
               ),
-              width: 66.8,
+              width: 60,
               child: AppIcons.hotspot,
             ),
           ),
@@ -99,14 +101,14 @@ class SideDrawerIcons extends StatelessWidget {
           child: GestureDetector(
             onTap: () => appRouter.push(const CollectionChallengeRoute()),
             child: Container(
-              height: 70,
+              height: 65,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
               ),
-              width: 66.8,
+              width: 60,
               child: AppIcons.search,
             ),
           ),
@@ -116,14 +118,14 @@ class SideDrawerIcons extends StatelessWidget {
           child: GestureDetector(
             onTap: () => appRouter.push(const BonusChallengeRoute()),
             child: Container(
-              height: 70,
+              height: 65,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
               ),
-              width: 66.8,
+              width: 60,
               child: AppIcons.gift,
             ),
           ),

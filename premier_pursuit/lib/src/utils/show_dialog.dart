@@ -4,7 +4,8 @@ import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 
-showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
+showAnswerDialog(BuildContext context, {required isCorrect, bool? fillBlank}) =>
+    showDialog(
       context: context,
       builder: (context) {
         final screenWidth = MediaQuery.of(context).size.width;
@@ -64,7 +65,8 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                           borderColor: AppColors.pinkBackground,
                           backgroundColor: AppColors.pinkFont,
                           text: 'CONTINUE',
-                          onTap: () {},
+                          onTap: () =>
+                              appRouter.push(const TriviaFillBlankRoute()),
                         ),
                       )
                     ],
@@ -123,7 +125,7 @@ showAnswerDialog(BuildContext context, {required isCorrect}) => showDialog(
                           onTap: () {
                             Navigator.of(context).pop();
                             appRouter.push(
-                              const TrainingTrueFalseRoute(),
+                              const TriviaTrueFalseRoute(),
                             );
                           },
                         ),

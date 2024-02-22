@@ -36,7 +36,10 @@ class BlueDrawer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     isMultiChallenge
-                        ? const SideDrawerIcons()
+                        ? const Padding(
+                            padding: EdgeInsets.only(top: 8.0),
+                            child: SideDrawerIcons(),
+                          )
                         : Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
@@ -54,8 +57,8 @@ class BlueDrawer extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: SizedBox(
-                        height: 73,
-                        width: 73,
+                        height: 65,
+                        width: 60,
                         child: AppIcons.appLogo,
                       ),
                     ),

@@ -87,16 +87,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashView(),
       );
     },
-    TrainingTrueFalseRoute.name: (routeData) {
+    TriviaFillBlankRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const TrainingTrueFalseView(),
+        child: const TriviaFillBlankView(),
       );
     },
-    TrainingRoute.name: (routeData) {
+    TriviaTrueFalseRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const TrainingView(),
+        child: const TriviaTrueFalseView(),
+      );
+    },
+    TriviaRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TriviaView(),
       );
     },
     VideoChallengeRoute.name: (routeData) {
@@ -277,29 +283,43 @@ class SplashRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [TrainingTrueFalseView]
-class TrainingTrueFalseRoute extends PageRouteInfo<void> {
-  const TrainingTrueFalseRoute({List<PageRouteInfo>? children})
+/// [TriviaFillBlankView]
+class TriviaFillBlankRoute extends PageRouteInfo<void> {
+  const TriviaFillBlankRoute({List<PageRouteInfo>? children})
       : super(
-          TrainingTrueFalseRoute.name,
+          TriviaFillBlankRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'TrainingTrueFalseRoute';
+  static const String name = 'TriviaFillBlankRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [TrainingView]
-class TrainingRoute extends PageRouteInfo<void> {
-  const TrainingRoute({List<PageRouteInfo>? children})
+/// [TriviaTrueFalseView]
+class TriviaTrueFalseRoute extends PageRouteInfo<void> {
+  const TriviaTrueFalseRoute({List<PageRouteInfo>? children})
       : super(
-          TrainingRoute.name,
+          TriviaTrueFalseRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'TrainingRoute';
+  static const String name = 'TriviaTrueFalseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TriviaView]
+class TriviaRoute extends PageRouteInfo<void> {
+  const TriviaRoute({List<PageRouteInfo>? children})
+      : super(
+          TriviaRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TriviaRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

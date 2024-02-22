@@ -37,69 +37,73 @@ class _AppTeamNameViewState extends State<AppTeamNameView> {
         backgroundColor: const Color.fromRGBO(17, 70, 132, 0.3),
         elevation: 0,
       ),
-      drawer: Drawer(
-        elevation: 0,
-        width: screenWidth * 0.55,
-        backgroundColor: AppColors.drawerWhiteBackground,
-        child: Row(
-          children: [
-            BlueDrawer(
-              screenWidth: screenWidth,
-              isMultiChallenge: false,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      width: screenWidth * 0.37,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
-                      child: IconButton(
-                        icon: AppIcons.backButton,
-                        onPressed: () => appRouter.popAndPush(
-                          const AppInfoRoute(),
+      drawer: Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child: Drawer(
+          elevation: 0,
+          width: screenWidth * 0.55,
+          backgroundColor: AppColors.drawerWhiteBackground,
+          child: Row(
+            children: [
+              BlueDrawer(
+                screenWidth: screenWidth,
+                isMultiChallenge: false,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: screenWidth * 0.37,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: IconButton(
+                          icon: AppIcons.backButton,
+                          onPressed: () => appRouter.popAndPush(
+                            const AppInfoRoute(),
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 30, bottom: 30, top: 25),
+                    child: Text(
+                      'Choose Your\nTeam Name',
+                      style: AppTypography.textStyle(
+                        fontSize: 40,
+                        color: AppColors.blueFont,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      softWrap: true,
                     ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, bottom: 30, top: 25),
-                  child: Text(
-                    'Choose Your\nTeam Name',
-                    style: AppTypography.textStyle(
-                      fontSize: 40,
-                      color: AppColors.blueFont,
-                      fontWeight: FontWeight.w400,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 30),
+                    child: LoginTextField(
+                      textColor: AppColors.orangeBackground,
+                      text: 'ENTER TEAM NAME HERE',
                     ),
-                    softWrap: true,
                   ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 30),
-                  child: LoginTextField(
-                    textColor: AppColors.orangeBackground,
-                    text: 'ENTER TEAM NAME HERE',
-                  ),
-                ),
-                const Spacer(),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 60),
-                  child: CustomOutlinedButton(
-                    borderColor: AppColors.orangeOutline,
-                    backgroundColor: AppColors.orangeBackground,
-                    text: 'START TRAINING',
-                    onTap: () => appRouter.push(const TrainingRoute()),
-                  ),
-                )
-              ],
-            ),
-          ],
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 60),
+                    child: CustomOutlinedButton(
+                      borderColor: AppColors.orangeOutline,
+                      backgroundColor: AppColors.orangeBackground,
+                      text: 'START TRAINING',
+                      onTap: () => appRouter.push(const TriviaRoute()),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       body: Stack(

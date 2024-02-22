@@ -40,135 +40,145 @@ class _HotspotChallengeViewState extends State<CollectionChallengeView> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      drawer: Drawer(
-        elevation: 0,
-        width: screenWidth * 0.55,
-        backgroundColor: AppColors.drawerWhiteBackground,
-        child: Row(
-          children: [
-            BlueDrawer(screenWidth: screenWidth, isMultiChallenge: true),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * 0.33,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadiusDirectional.circular(10),
-                            color: AppColors.redFont,
-                          ),
-                          child: IconButton(
-                              padding: const EdgeInsets.only(left: 10),
-                              color: Colors.white,
-                              icon: const Icon(Icons.arrow_back_ios),
-                              onPressed: () {}),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                    child: Row(
-                      children: [
-                        AppIcons.search,
-                        Padding(
-                            padding: const EdgeInsets.only(left: 20.0, top: 5),
-                            child: training(AppColors.greenFont)),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
-                    child: Text(
-                      'Collection\nChallenge',
-                      style: AppTypography.textStyle(
-                        fontSize: 38,
-                        color: AppColors.redFont,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10.0, top: 5),
-                    child: Text(
-                      'Restaurant Menu',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
-                    child: Container(
-                      height: 1,
-                      width: 140,
-                      color: AppColors.redFont,
-                    ),
-                  ),
-                  Column(
+      drawer: Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child: Drawer(
+          elevation: 0,
+          width: screenWidth * 0.55,
+          backgroundColor: AppColors.drawerWhiteBackground,
+          child: Row(
+            children: [
+              BlueDrawer(screenWidth: screenWidth, isMultiChallenge: true),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 5.0, top: 5),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: screenWidth * 0.33,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(10),
+                                color: AppColors.redFont,
+                              ),
+                              child: IconButton(
+                                padding: const EdgeInsets.only(left: 10),
+                                color: Colors.white,
+                                icon: const Icon(Icons.arrow_back_ios),
+                                onPressed: () => Navigator.pop,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                        ),
+                        child: Row(
+                          children: [
+                            AppIcons.search,
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5.0),
                         child: Text(
-                          'Collect a restaurant menu\nsigned by the head chef!',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
+                          'Collection\nChallenge',
+                          style: AppTypography.textStyle(
+                            fontSize: 42,
+                            color: AppColors.redFont,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(left: 10.0, top: 5),
                         child: Text(
-                          'Once you have collected the item,\nhold onto it and turn it in to your\nfacilitator at the ending location.',
+                          'Restaurant Menu',
                           style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
+                            fontSize: 19,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 10.0, top: 30),
-                        child: Text(
-                          'WE HAVE THIS ITEM ...',
-                          softWrap: true,
-                          style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                            fontSize: 17,
-                            letterSpacing: 1.4,
-                            color: AppColors.redFont,
-                            fontWeight: FontWeight.w600,
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 6),
+                        child: Container(
+                          height: 1,
+                          width: 140,
+                          color: AppColors.redFont,
                         ),
                       ),
-                      CustomOutlinedButton(
-                        width: screenWidth / 3,
-                        textColor: Colors.white,
-                        borderColor: AppColors.redBorder,
-                        backgroundColor: AppColors.redFont,
-                        text: 'COMPLETE CHALLENGE!',
-                        onTap: () {},
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5.0, top: 5),
+                            child: Text(
+                              'Collect a restaurant menu\nsigned by the head chef!',
+                              style: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5.0, top: 15),
+                            child: Text(
+                              'Once you have collected the item,\nhold onto it and turn it in to your\nfacilitator at the ending location.',
+                              style: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(
+                                    left: 10.0, top: 75, bottom: 15),
+                                child: Text(
+                                  'WE HAVE THIS ITEM ...',
+                                  softWrap: true,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    letterSpacing: 1.4,
+                                    color: AppColors.redFont,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ),
+                              CustomOutlinedButton(
+                                width: screenWidth / 3,
+                                textColor: Colors.white,
+                                borderColor: AppColors.redBorder,
+                                backgroundColor: AppColors.redFont,
+                                text: 'COMPLETE CHALLENGE!',
+                                onTap: () {},
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
-            )
-          ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
       body: Stack(

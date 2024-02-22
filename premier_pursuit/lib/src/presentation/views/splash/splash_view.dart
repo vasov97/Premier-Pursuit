@@ -22,9 +22,11 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Container(
           width: double.infinity,
           height: screenHeight,
@@ -56,7 +58,7 @@ class _SplashViewState extends State<SplashView> {
                             Text(
                               appName,
                               style: AppTypography.textStyle(
-                                fontSize: 27,
+                                fontSize: 28,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -70,32 +72,32 @@ class _SplashViewState extends State<SplashView> {
                                     _showAdmin = true;
                                   });
                                 }),
-                            CustomOutlinedButton(
-                                borderColor: AppColors.orangeOutline,
-                                backgroundColor: AppColors.orangeBackground,
-                                text: 'End score',
-                                onTap: () {
-                                  appRouter.push(const EndScoreRoute());
-                                }),
-                            CustomOutlinedButton(
-                                borderColor: AppColors.orangeOutline,
-                                backgroundColor: AppColors.orangeBackground,
-                                text: 'End',
-                                onTap: () {
-                                  appRouter.push(const EndRoute());
-                                }),
-                            const SizedBox(height: 20),
+                            // CustomOutlinedButton(
+                            //     borderColor: AppColors.orangeOutline,
+                            //     backgroundColor: AppColors.orangeBackground,
+                            //     text: 'End score',
+                            //     onTap: () {
+                            //       appRouter.push(const EndScoreRoute());
+                            //     }),
+                            // CustomOutlinedButton(
+                            //     borderColor: AppColors.orangeOutline,
+                            //     backgroundColor: AppColors.orangeBackground,
+                            //     text: 'End',
+                            //     onTap: () {
+                            //       appRouter.push(const EndRoute());
+                            //     }),
+
                             const SizedBox(
-                              height: 40,
+                              height: 80,
                             ),
                           ],
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.only(bottom: 20.0, top: 40),
+                        padding: const EdgeInsets.only(bottom: 20.0, top: 55),
                         child: Container(
-                          width: 535,
-                          height: 570,
+                          width: screenWidth * 0.4,
+                          height: screenHeight * 0.6,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
@@ -122,7 +124,7 @@ class _SplashViewState extends State<SplashView> {
                               children: [
                                 Padding(
                                   padding:
-                                      const EdgeInsets.symmetric(vertical: 40),
+                                      const EdgeInsets.symmetric(vertical: 10),
                                   child: Text(
                                     'Admin Login',
                                     style: AppTypography.textStyle(
@@ -152,58 +154,64 @@ class _SplashViewState extends State<SplashView> {
                           ]),
                         ),
                       ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0, top: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
-                            child: GestureDetector(
-                              onTap: () {},
-                              child: AppIcons.admin,
+                // const SizedBox(
+                //   height: 80,
+                // ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 85.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0, top: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 4.0),
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: AppIcons.admin,
+                              ),
                             ),
-                          ),
-                          Text(
-                            admin,
-                            style: AppTypography.textStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
+                            Text(
+                              admin,
+                              style: AppTypography.textStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 28.0, right: 85),
-                      child: Column(
-                        children: [
-                          Text(
-                            copyright,
-                            style: AppTypography.textStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w300,
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 28.0, right: 85),
+                        child: Column(
+                          children: [
+                            Text(
+                              copyright,
+                              style: AppTypography.textStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w300,
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 9,
-                          ),
-                          Text(
-                            appNameR,
-                            style: AppTypography.textStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w300,
+                            const SizedBox(
+                              height: 9,
                             ),
-                          ),
-                        ],
+                            Text(
+                              appNameR,
+                              style: AppTypography.textStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const Spacer()
-                  ],
+                      const Spacer()
+                    ],
+                  ),
                 ),
               ],
             ),

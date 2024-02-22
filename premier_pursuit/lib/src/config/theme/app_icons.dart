@@ -139,7 +139,8 @@ class AppIcons {
   );
   static final SvgPicture hotspot = SvgPicture.asset(
     'assets/icons/hotspot.svg',
-    width: 36.69,
-    height: 35.19,
+    width: 30.69,
+    height: 30.19,
+    fit: BoxFit.contain,
   );
 }

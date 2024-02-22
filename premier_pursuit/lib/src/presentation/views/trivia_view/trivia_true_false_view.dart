@@ -1,29 +1,32 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:premier_pursuit/src/config/router/app_router.dart';
-import 'dart:io';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
-import 'package:camera/camera.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
-import 'package:premier_pursuit/src/utils/show_password_dialog.dart';
+import 'package:premier_pursuit/src/utils/show_dialog.dart';
 
 @RoutePage()
-class HotspotChallengeView extends StatefulWidget {
-  const HotspotChallengeView({super.key});
+class TriviaTrueFalseView extends StatefulWidget {
+  const TriviaTrueFalseView({super.key});
 
   @override
-  State<HotspotChallengeView> createState() => _HotspotChallengeViewState();
+  State<TriviaTrueFalseView> createState() => _TriviaTrueFalseViewState();
 }
 
-class _HotspotChallengeViewState extends State<HotspotChallengeView> {
+class _TriviaTrueFalseViewState extends State<TriviaTrueFalseView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isDrawerOpen = false;
+
+  int _selectedOptionIndex = -1; // Initially no option is selected
+
+  List<String> options = [
+    'ANSWER 1 GOES RIGHT HERE',
+    'ANSWER 2 GOES RIGHT HERE',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,6 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       onDrawerChanged: (isOpened) {
         setState(() {
           _isDrawerOpen = isOpened;
@@ -72,7 +74,7 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadiusDirectional.circular(10),
-                              color: AppColors.lightBlue,
+                              color: AppColors.pinkFont,
                             ),
                             child: IconButton(
                               padding: const EdgeInsets.only(left: 10),
@@ -85,12 +87,26 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
                       ],
                     ),
                     Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                      ),
+                      child: Row(
+                        children: [
+                          AppIcons.trivia,
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 5),
+                              child: training(AppColors.pinkFont)),
+                        ],
+                      ),
+                    ),
+                    Padding(
                       padding: const EdgeInsets.only(left: 5.0),
                       child: Text(
-                        'Hot Spot\nChallenge',
+                        'Trivia',
                         style: AppTypography.textStyle(
                           fontSize: 38,
-                          color: AppColors.lightBlue,
+                          color: AppColors.pinkFont,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -98,90 +114,150 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
                     const Padding(
                       padding: EdgeInsets.only(left: 10.0, top: 5),
                       child: Text(
-                        'YMCA',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        'Choose the correct answer to complete',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 10.0, top: 5),
+                      child: Row(
+                        children: [
+                          Text(
+                            'the',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          Text(
+                            ' TRUE / FALSE statement ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 17,
+                            ),
+                          ),
+                          Text(
+                            'below:',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Container(
+                        height: 1,
+                        width: 140,
+                        color: AppColors.pinkFont,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'TRUE ',
+                            softWrap: true,
+                            style: TextStyle(
+                                fontSize: 21,
+                                decoration: TextDecoration.underline,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.pinkFont,
+                                decorationColor: AppColors.pinkFont,
+                                fontStyle: FontStyle.italic),
+                          ),
+                          Text(
+                            'or ',
+                            softWrap: true,
+                            style: TextStyle(
+                              fontSize: 21,
+                              color: AppColors.pinkFont,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            'FALSE ',
+                            softWrap: true,
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              decorationColor: AppColors.pinkFont,
+                              fontSize: 21,
+                              fontStyle: FontStyle.italic,
+                              color: AppColors.pinkFont,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            '?',
+                            softWrap: true,
+                            style: TextStyle(
+                              fontSize: 21,
+                              color: AppColors.pinkFont,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Question text goes here. ',
+                            softWrap: true,
+                            style: TextStyle(
+                              fontSize: 21,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.pinkFont,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 6),
-                      child: Container(
-                        height: 1,
-                        width: 140,
-                        color: AppColors.lightBlue,
+                        vertical: 8.0,
+                        horizontal: 4,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: options
+                            .asMap()
+                            .entries
+                            .map(
+                              (question) => buildOption(
+                                  question.key, question.value, screenWidth),
+                            )
+                            .toList(),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5.0, top: 5),
-                          child: Text(
-                            '\“YMCA\” is a beloved party dance song. ',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10.0, top: 5),
-                          child: Text(
-                            'Let’s swap out the letters for numbers\nat today\’s \“hot spot\” . . . found at a\nparty venue across from a fountain.',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10.0, top: 30),
-                          child: Text(
-                            'Your facilitator is waiting for you there.\n'
-                            'Find the hot spot and complete in the\nchallenge posed to earn additional points.',
-                            softWrap: true,
-                            style: TextStyle(
-                              fontSize: 17,
-                              height: 1.3,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10.0, top: 30),
-                          child: Text(
-                            'The “Hot Spot” is only open\nfrom 3:00pm to 4:00pm.\n\nTo collect your points... Add an additional\nline here about needing to enter the\npassword next.',
-                            softWrap: true,
-                            style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontSize: 17,
-                              height: 1.3,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: CustomOutlinedButton(
+                    //const Spacer(),
+                    // SizedBox(
+                    //   height: screenHeight / 5.8,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 65.0),
+                      child: Row(
+                        //crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          CustomOutlinedButton(
                             width: screenWidth / 3,
-                            borderColor: AppColors.blueFont,
-                            backgroundColor: AppColors.lightBlue,
+                            borderColor: AppColors.pinkBackground,
+                            backgroundColor: AppColors.pinkFont,
                             text: 'SUBMIT ANSWER',
                             onTap: () {
                               Navigator.of(context).pop();
-
-                              showPasswordDialog(context);
+                              _selectedOptionIndex == 1
+                                  ? showAnswerDialog(context,
+                                      isCorrect: true, fillBlank: true)
+                                  : showAnswerDialog(context, isCorrect: false);
                             },
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -193,7 +269,7 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
               Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/hotspot_back.png'),
+                    image: AssetImage('assets/images/question_marks.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -243,7 +319,7 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
                           width: 150,
                           height: 54,
                           decoration: BoxDecoration(
-                            color: AppColors.lightBlue,
+                            color: AppColors.pinkBackground,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Row(
@@ -268,6 +344,7 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15.0, right: 15),
                     child: Row(
+                      //crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: _isDrawerOpen
                           ? MainAxisAlignment.end
                           : MainAxisAlignment.center,
@@ -308,6 +385,43 @@ class _HotspotChallengeViewState extends State<HotspotChallengeView> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildOption(int index, String option, double screenWidth) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedOptionIndex = index;
+        });
+      },
+      child: Container(
+        width: screenWidth / 5,
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: _selectedOptionIndex == index
+              ? const Color.fromARGB(156, 237, 16, 101)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(
+            width: 2,
+            color: _selectedOptionIndex == index
+                ? AppColors.pinkBackground
+                : Colors.transparent,
+          ),
+        ),
+        child: Text(
+          option,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: _selectedOptionIndex == index
+                ? FontWeight.w600
+                : FontWeight.w400,
+            color: Colors.black,
+          ),
+        ),
       ),
     );
   }

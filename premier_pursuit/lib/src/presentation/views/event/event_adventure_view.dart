@@ -38,104 +38,107 @@ class _EventAdventureViewState extends State<EventAdventureView> {
         backgroundColor: const Color.fromRGBO(17, 70, 132, 0.3),
         elevation: 0,
       ),
-      drawer: Drawer(
-        width: screenWidth * 0.6,
-        backgroundColor: AppColors.drawerWhiteBackground,
-        child: Row(
-          children: [
-            BlueDrawer(
-              screenWidth: screenWidth,
-              isMultiChallenge: false,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 300,
-                    child: eventAdventureTitle,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                    child: companyName,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                    child: cityStateDate,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                    ),
-                    child: Container(
-                      width: 380,
-                      height: 2,
-                      color: const Color.fromRGBO(1, 44, 82, 0.11),
-                    ),
-                  ),
-                  welcomeToAdventure,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: variety,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8.0,
-                      horizontal: 25,
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            ChallengeWidget(
-                              icon: AppIcons.trivia,
-                              text: 'TRIVIA',
-                            ),
-                            ChallengeWidget(
-                              icon: AppIcons.camera,
-                              text: 'PHOTO',
-                            ),
-                            ChallengeWidget(
-                              icon: AppIcons.youtube,
-                              text: 'VIDEO',
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            ChallengeWidget(
-                              icon: AppIcons.hotspot,
-                              text: 'HOT SPOT',
-                            ),
-                            ChallengeWidget(
-                              icon: AppIcons.search,
-                              text: 'COLLECT',
-                            ),
-                            ChallengeWidget(
-                              icon: AppIcons.gift,
-                              text: 'BONUS',
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  followTheRulesText,
-                  CustomOutlinedButton(
-                    borderColor: AppColors.orangeOutline,
-                    backgroundColor: AppColors.orangeBackground,
-                    text: 'GET STARTED',
-                    onTap: () => appRouter.push(const AppInfoRoute()),
-                  ),
-                ],
+      drawer: Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child: Drawer(
+          width: screenWidth * 0.6,
+          backgroundColor: AppColors.drawerWhiteBackground,
+          child: Row(
+            children: [
+              BlueDrawer(
+                screenWidth: screenWidth,
+                isMultiChallenge: false,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 300,
+                      child: eventAdventureTitle,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 4,
+                      ),
+                      child: companyName,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 4,
+                      ),
+                      child: cityStateDate,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 4,
+                      ),
+                      child: Container(
+                        width: 380,
+                        height: 2,
+                        color: const Color.fromRGBO(1, 44, 82, 0.11),
+                      ),
+                    ),
+                    welcomeToAdventure,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: variety,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8.0,
+                        horizontal: 25,
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              ChallengeWidget(
+                                icon: AppIcons.trivia,
+                                text: 'TRIVIA',
+                              ),
+                              ChallengeWidget(
+                                icon: AppIcons.camera,
+                                text: 'PHOTO',
+                              ),
+                              ChallengeWidget(
+                                icon: AppIcons.youtube,
+                                text: 'VIDEO',
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              ChallengeWidget(
+                                icon: AppIcons.hotspot,
+                                text: 'HOT SPOT',
+                              ),
+                              ChallengeWidget(
+                                icon: AppIcons.search,
+                                text: 'COLLECT',
+                              ),
+                              ChallengeWidget(
+                                icon: AppIcons.gift,
+                                text: 'BONUS',
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    followTheRulesText,
+                    CustomOutlinedButton(
+                      borderColor: AppColors.orangeOutline,
+                      backgroundColor: AppColors.orangeBackground,
+                      text: 'GET STARTED',
+                      onTap: () => appRouter.push(const AppInfoRoute()),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: Stack(

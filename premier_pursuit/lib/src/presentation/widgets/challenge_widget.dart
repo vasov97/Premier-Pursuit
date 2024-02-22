@@ -17,8 +17,8 @@ class ChallengeWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          width: 112.12,
-          height: 95,
+          width: 105.12,
+          height: 90,
           decoration: BoxDecoration(
             color: Colors.white, // Background color of the container
             borderRadius:
