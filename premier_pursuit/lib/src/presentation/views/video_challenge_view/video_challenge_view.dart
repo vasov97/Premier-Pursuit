@@ -1,9 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:premier_pursuit/main.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'dart:io';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
@@ -13,7 +10,6 @@ import 'package:camera/camera.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
-import 'package:video_player/video_player.dart';
 
 File? pickedVideoFile;
 
@@ -36,7 +32,6 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
   void initState() {
     super.initState();
 
-    //_controller = CameraController(cameras[0], ResolutionPreset.medium);
     _initializeControllerFuture = _controller!.initialize();
   }
 

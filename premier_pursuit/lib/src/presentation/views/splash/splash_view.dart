@@ -26,7 +26,7 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Container(
           width: double.infinity,
           height: screenHeight,
@@ -42,6 +42,7 @@ class _SplashViewState extends State<SplashView> {
             ),
           ),
           child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,14 +73,14 @@ class _SplashViewState extends State<SplashView> {
                                     _showAdmin = true;
                                   });
                                 }),
-                            CustomOutlinedButton(
-                                borderColor: AppColors.orangeOutline,
-                                backgroundColor: AppColors.orangeBackground,
-                                text: 'End score',
-                                onTap: () {
-                                  //appRouter.push(const EndScoreRoute());
-                                  appRouter.push(const VideoChallengeRoute());
-                                }),
+                            // CustomOutlinedButton(
+                            //     borderColor: AppColors.orangeOutline,
+                            //     backgroundColor: AppColors.orangeBackground,
+                            //     text: 'End score',
+                            //     onTap: () {
+                            //       //appRouter.push(const EndScoreRoute());
+                            //       appRouter.push(const VideoChallengeRoute());
+                            //     }),
                             // CustomOutlinedButton(
                             //     borderColor: AppColors.orangeOutline,
                             //     backgroundColor: AppColors.orangeBackground,
@@ -95,7 +96,7 @@ class _SplashViewState extends State<SplashView> {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.only(bottom: 20.0, top: 55),
+                        padding: const EdgeInsets.only(bottom: 98.0, top: 55),
                         child: Container(
                           width: screenWidth * 0.4,
                           height: screenHeight * 0.6,
@@ -159,17 +160,25 @@ class _SplashViewState extends State<SplashView> {
                 //   height: 80,
                 // ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 85.0),
+                  padding: const EdgeInsets.only(
+                    top: 60.0,
+                    //bottom: 25,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 30.0, top: 10),
+                        padding: const EdgeInsets.only(
+                          left: 25.0,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          //crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 4.0),
+                              padding: const EdgeInsets.only(
+                                left: 4.0,
+                              ),
                               child: GestureDetector(
                                 onTap: () {},
                                 child: AppIcons.admin,
