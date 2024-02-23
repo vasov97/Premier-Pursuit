@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 
 class AppIcons {
-  static final SvgPicture appLogo = SvgPicture.asset(
-    'assets/icons/Logo.svg',
+  static final Image appLogo = Image.asset(
+    'assets/icons/Logo.png',
     width: 262,
     height: 262,
   );
@@ -18,18 +18,18 @@ class AppIcons {
     width: 30,
     height: 30,
   );
-  static final SvgPicture questionOutlined = SvgPicture.asset(
-    'assets/icons/Group 802.svg',
+  static final Image questionOutlined = Image.asset(
+    'assets/icons/Group 802.png',
     width: 35,
     height: 35,
   );
-  static final SvgPicture backButton = SvgPicture.asset(
-    'assets/icons/Group 835.svg',
+  static final Image backButton = Image.asset(
+    'assets/icons/orange_back.png',
     width: 41.4,
     height: 46,
   );
-  static final SvgPicture backButtonPink = SvgPicture.asset(
-    'assets/icons/Group 835.svg',
+  static final Image backButtonPink = Image.asset(
+    'assets/icons/pink_back.png',
     width: 41.4,
     height: 46,
     color: Colors.pink,
@@ -132,13 +132,13 @@ class AppIcons {
     width: 36.69,
     height: 35.19,
   );
-  static final SvgPicture triviaWhite = SvgPicture.asset(
+  static final Image triviaWhite = Image.asset(
     'assets/icons/trivia_white.png',
     width: 36.69,
     height: 35.19,
   );
-  static final SvgPicture hotspot = SvgPicture.asset(
-    'assets/icons/hotspot.svg',
+  static final Image hotspot = Image.asset(
+    'assets/icons/hotspot.png',
     width: 30.69,
     height: 30.19,
     fit: BoxFit.contain,

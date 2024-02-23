@@ -14,7 +14,9 @@ dependencies:
   flutter_svg: ^2.0.9
   image_picker: ^1.0.7
   loading_indicator: ^3.1.1
+  path_provider: ^2.1.2
   permission_handler: ^11.3.0
+  video_player: ^2.8.2
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
@@ -63,14 +65,15 @@ flutter:
     - assets/icons/loading.svg
     - assets/icons/Group 867.svg
     - assets/icons/green_camera.png
-    - assets/icons/Group 835.svg
-    - assets/icons/Group 802.svg
+    - assets/icons/pink_back.png
+    - assets/icons/orange_back.png
+    - assets/icons/Group 802.png
     - assets/icons/Group.svg
-    - assets/icons/Logo.svg
+    - assets/icons/Logo.png
     - assets/icons/Vector.svg
     - assets/icons/wifi.png
     - assets/icons/trivia.svg
-    - assets/icons/hotspot.svg
+    - assets/icons/hotspot.png
     - assets/icons/camera.png
     - assets/icons/gift.png
     - assets/icons/search.png

@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:premier_pursuit/main.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'dart:io';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
@@ -11,6 +13,9 @@ import 'package:camera/camera.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
+import 'package:video_player/video_player.dart';
+
+File? pickedVideoFile;
 
 @RoutePage()
 class VideoChallengeView extends StatefulWidget {
@@ -21,9 +26,25 @@ class VideoChallengeView extends StatefulWidget {
 }
 
 class _VideoChallengeViewState extends State<VideoChallengeView> {
-  File? _pickedVideoFile;
+  late CameraController? _controller;
+
+  late Future<void> _initializeControllerFuture;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isDrawerOpen = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    //_controller = CameraController(cameras[0], ResolutionPreset.medium);
+    _initializeControllerFuture = _controller!.initialize();
+  }
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +70,13 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
         child: Drawer(
           elevation: 0,
           width: screenWidth * 0.55,
-          backgroundColor: _pickedVideoFile == null
+          backgroundColor: pickedVideoFile == null
               ? AppColors.drawerWhiteBackground
               : AppColors.purpleFont,
           child: Row(
             children: [
               BlueDrawer(screenWidth: screenWidth, isMultiChallenge: true),
-              _pickedVideoFile == null
+              pickedVideoFile == null
                   ? Padding(
                       padding: const EdgeInsets.only(left: 20.0),
                       child: Column(
@@ -94,9 +115,10 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                               children: [
                                 AppIcons.purpleCamera,
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20.0, top: 5),
-                                    child: training(AppColors.purpleFont)),
+                                  padding:
+                                      const EdgeInsets.only(left: 20.0, top: 5),
+                                  child: training(AppColors.purpleFont),
+                                ),
                               ],
                             ),
                           ),
@@ -208,7 +230,8 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => _pickVideo(),
+                                onPressed: () =>
+                                    appRouter.push(const VideoRoute()),
                                 icon: AppIcons.purpleYt,
                               ),
                             ],
@@ -309,7 +332,8 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                                   borderColor: AppColors.lightPurple,
                                   backgroundColor: Colors.white,
                                   text: 'TRY AGAIN!',
-                                  onTap: () => _pickVideo(),
+                                  onTap: () =>
+                                      appRouter.push(const VideoRoute()),
                                 ),
                               ),
                               Padding(
@@ -336,7 +360,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
         children: [
           Stack(
             children: [
-              _pickedVideoFile == null
+              pickedVideoFile == null
                   ? Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
@@ -349,7 +373,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                   : Container(
                       color: AppColors.lightPurple,
                     ),
-              _pickedVideoFile == null
+              pickedVideoFile == null
                   ? Container(
                       decoration: const BoxDecoration(
                         gradient: LinearGradient(
@@ -368,16 +392,23 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 75),
-                          child: Container(
+                          child: SizedBox(
                             height: screenHeight * 0.3,
                             width: screenWidth * 0.2,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                image: FileImage(_pickedVideoFile!),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                            child: FutureBuilder(
+                                future: _initializeControllerFuture,
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.done) {
+                                    return AspectRatio(
+                                      aspectRatio:
+                                          _controller!.value.aspectRatio,
+                                      child: CameraPreview(_controller!),
+                                    );
+                                  } else {
+                                    return const CircularProgressIndicator();
+                                  }
+                                }),
                           ),
                         ),
                       ],
@@ -451,7 +482,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                             style: AppTypography.textStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.w300,
-                              color: _pickedVideoFile == null
+                              color: pickedVideoFile == null
                                   ? Colors.white
                                   : AppColors.purpleFont,
                             ),
@@ -460,7 +491,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            color: _pickedVideoFile == null
+                            color: pickedVideoFile == null
                                 ? Colors.white
                                 : AppColors.purpleFont,
                             height: 10,
@@ -474,7 +505,7 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                             style: AppTypography.textStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
-                              color: _pickedVideoFile == null
+                              color: pickedVideoFile == null
                                   ? Colors.white
                                   : AppColors.purpleFont,
                             ),
@@ -490,13 +521,5 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
         ],
       ),
     );
-  }
-
-  Future _pickVideo() async {
-    final video = await ImagePicker().pickVideo(source: ImageSource.camera);
-    if (video == null) return;
-    setState(() {
-      _pickedVideoFile = File(video.path);
-    });
   }
 }

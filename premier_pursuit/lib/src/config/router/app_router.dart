@@ -16,6 +16,7 @@ import 'package:premier_pursuit/src/presentation/views/splash/splash_view.dart';
 
 import 'package:premier_pursuit/src/presentation/views/trivia_view/trivia_true_false_view.dart';
 import 'package:premier_pursuit/src/presentation/views/trivia_view/trivia_view.dart';
+import 'package:premier_pursuit/src/presentation/views/video_challenge_view/video_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -40,6 +41,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(path: '/grid-view-challenge', page: ChallengesGridRoute.page),
         AutoRoute(path: '/end-score', page: EndScoreRoute.page),
         AutoRoute(path: '/end', page: EndRoute.page),
+        AutoRoute(path: '/video', page: VideoRoute.page),
       ];
 }
 

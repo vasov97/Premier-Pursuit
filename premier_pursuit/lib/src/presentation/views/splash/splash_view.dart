@@ -72,13 +72,14 @@ class _SplashViewState extends State<SplashView> {
                                     _showAdmin = true;
                                   });
                                 }),
-                            // CustomOutlinedButton(
-                            //     borderColor: AppColors.orangeOutline,
-                            //     backgroundColor: AppColors.orangeBackground,
-                            //     text: 'End score',
-                            //     onTap: () {
-                            //       appRouter.push(const EndScoreRoute());
-                            //     }),
+                            CustomOutlinedButton(
+                                borderColor: AppColors.orangeOutline,
+                                backgroundColor: AppColors.orangeBackground,
+                                text: 'End score',
+                                onTap: () {
+                                  //appRouter.push(const EndScoreRoute());
+                                  appRouter.push(const VideoChallengeRoute());
+                                }),
                             // CustomOutlinedButton(
                             //     borderColor: AppColors.orangeOutline,
                             //     backgroundColor: AppColors.orangeBackground,
