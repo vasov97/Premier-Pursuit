@@ -3,11 +3,14 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:premier_pursuit/src/presentation/views/bonus_challenge/bonus_challenge_view.dart';
 import 'package:premier_pursuit/src/presentation/views/video_challenge_view/video_challenge_view.dart';
 
 @RoutePage()
 class VideoView extends StatefulWidget {
-  const VideoView({super.key});
+  VideoView({super.key, required this.cameraController});
+
+  CameraController cameraController;
 
   @override
   State<VideoView> createState() => _VideoViewState();
@@ -15,27 +18,28 @@ class VideoView extends StatefulWidget {
 
 class _VideoViewState extends State<VideoView> {
   bool _isLoading = true;
-  late CameraController _cameraController;
+  //late CameraController cameraController;
   bool _isRecording = false;
-  @override
-  void dispose() {
-    _cameraController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   widget.cameraController.dispose();
+  //   super.dispose();
+  // }
 
   _initCamera() async {
     final cameras = await availableCameras();
     final front = cameras.firstWhere(
         (camera) => camera.lensDirection == CameraLensDirection.front);
-    _cameraController = CameraController(front, ResolutionPreset.max);
-    await _cameraController.initialize();
+    widget.cameraController = CameraController(front, ResolutionPreset.max);
+    await widget.cameraController!.initialize();
     setState(() => _isLoading = false);
   }
 
   @override
   void initState() {
     super.initState();
-    _initCamera();
+    setState(() => _isLoading = false);
+    //_initCamera();
   }
 
   @override
@@ -52,13 +56,15 @@ class _VideoViewState extends State<VideoView> {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            CameraPreview(_cameraController),
+            CameraPreview(widget.cameraController!),
             Padding(
               padding: const EdgeInsets.all(25),
               child: FloatingActionButton(
                 backgroundColor: Colors.red,
                 child: Icon(_isRecording ? Icons.stop : Icons.circle),
-                onPressed: () => _recordVideo(),
+                onPressed: () async {
+                  await _recordVideo();
+                },
               ),
             ),
           ],
@@ -69,21 +75,20 @@ class _VideoViewState extends State<VideoView> {
 
   _recordVideo() async {
     if (_isRecording) {
-      final file = await _cameraController.stopVideoRecording();
+      final file = await widget.cameraController.stopVideoRecording();
       setState(() {
         _isRecording = false;
         pickedVideoFile = File(file.path);
+        bonusVideoFile = File(file.path);
       });
-
+      Navigator.pop(context);
       // final route = MaterialPageRoute(
       //   fullscreenDialog: true,
       //   builder: (_) => VideoPage(filePath: file.path),
       // );
-
-      Navigator.pop(context);
     } else {
-      await _cameraController.prepareForVideoRecording();
-      await _cameraController.startVideoRecording();
+      await widget.cameraController.prepareForVideoRecording();
+      await widget.cameraController.startVideoRecording();
       setState(() => _isRecording = true);
     }
   }

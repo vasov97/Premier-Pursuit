@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 import 'package:premier_pursuit/src/presentation/views/challenges_grid_view/challenges_grid_view.dart';
 import 'package:premier_pursuit/src/presentation/views/collection_challenge/collection_challenge_view.dart';
 import 'package:premier_pursuit/src/presentation/views/trivia_view/trivia_fill_blank_view.dart';

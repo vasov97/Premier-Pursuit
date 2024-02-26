@@ -41,10 +41,11 @@ class CustomOutlinedButton extends StatelessWidget {
           child: Text(
             text,
             style: AppTypography.textStyle(
-                fontSize: 17,
-                color: textColor,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 5),
+              fontSize: 17,
+              color: textColor,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 5,
+            ),
           ),
         ),
       ),

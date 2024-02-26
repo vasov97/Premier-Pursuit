@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:premier_pursuit/main.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'dart:io';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
@@ -22,7 +23,7 @@ class VideoChallengeView extends StatefulWidget {
 }
 
 class _VideoChallengeViewState extends State<VideoChallengeView> {
-  late CameraController? _controller;
+  late CameraController cameraController;
 
   late Future<void> _initializeControllerFuture;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -31,14 +32,16 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
   @override
   void initState() {
     super.initState();
-
-    _initializeControllerFuture = _controller!.initialize();
+    _initCamera();
   }
 
-  @override
-  void dispose() {
-    _controller!.dispose();
-    super.dispose();
+  _initCamera() async {
+    final cameras = await availableCameras();
+    final front = cameras.firstWhere(
+        (camera) => camera.lensDirection == CameraLensDirection.front);
+    cameraController = CameraController(front, ResolutionPreset.max);
+    await cameraController.initialize();
+    _initializeControllerFuture = cameraController.initialize();
   }
 
   @override
@@ -225,8 +228,10 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () =>
-                                    appRouter.push(const VideoRoute()),
+                                onPressed: () {
+                                  appRouter.push(VideoRoute(
+                                      cameraController: cameraController));
+                                },
                                 icon: AppIcons.purpleYt,
                               ),
                             ],
@@ -327,8 +332,8 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                                   borderColor: AppColors.lightPurple,
                                   backgroundColor: Colors.white,
                                   text: 'TRY AGAIN!',
-                                  onTap: () =>
-                                      appRouter.push(const VideoRoute()),
+                                  onTap: () => appRouter.push(VideoRoute(
+                                      cameraController: cameraController)),
                                 ),
                               ),
                               Padding(
@@ -386,19 +391,21 @@ class _VideoChallengeViewState extends State<VideoChallengeView> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 75),
+                              vertical: 120, horizontal: 75),
                           child: SizedBox(
-                            height: screenHeight * 0.3,
-                            width: screenWidth * 0.2,
+                            height: screenHeight * 0.55,
+                            width: screenWidth * 0.7,
                             child: FutureBuilder(
                                 future: _initializeControllerFuture,
                                 builder: (context, snapshot) {
                                   if (snapshot.connectionState ==
-                                      ConnectionState.done) {
+                                          ConnectionState.done &&
+                                      cameraController != null) {
                                     return AspectRatio(
                                       aspectRatio:
-                                          _controller!.value.aspectRatio,
-                                      child: CameraPreview(_controller!),
+                                          cameraController.value.aspectRatio ??
+                                              0,
+                                      child: CameraPreview(cameraController),
                                     );
                                   } else {
                                     return const CircularProgressIndicator();

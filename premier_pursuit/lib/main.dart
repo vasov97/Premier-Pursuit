@@ -5,9 +5,9 @@ import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'package:premier_pursuit/src/config/theme/app_theme.dart';
 
 //late List<CameraDescription> cameras;
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // cameras = await availableCameras();
+  //cameras = await availableCameras();
 
   runApp(const MainApp());
 }

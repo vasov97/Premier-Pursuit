@@ -1,4 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.CAMERA" />
+    
+   
+    <!-- For accessing microphone (if recording audio with video) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- For writing videos to external storage (if needed) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- For accessing location (if location data is used in camera app) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:label="premier_pursuit"
         android:name="${applicationName}"
