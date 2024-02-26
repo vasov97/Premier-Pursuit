@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:premier_pursuit/main.dart';
 import 'package:premier_pursuit/src/config/router/app_router.dart';
 import 'dart:io';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';

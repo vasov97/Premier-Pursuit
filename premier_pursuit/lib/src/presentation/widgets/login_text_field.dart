@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:premier_pursuit/src/config/const/strings.dart';
-import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 
 class LoginTextField extends StatelessWidget {

@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:premier_pursuit/src/config/theme/app_colors.dart';
 import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
-import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 
@@ -26,7 +25,7 @@ class _HotspotChallengeViewState extends State<CollectionChallengeView> {
       const SystemUiOverlayStyle(statusBarColor: AppColors.blueFont),
     );
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       onDrawerChanged: (isOpened) {

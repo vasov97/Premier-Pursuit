@@ -6,7 +6,6 @@ import 'package:premier_pursuit/src/config/theme/app_icons.dart';
 import 'package:premier_pursuit/src/config/theme/app_typography.dart';
 import 'package:premier_pursuit/src/presentation/widgets/app_texts/app_texts.dart';
 import 'package:premier_pursuit/src/presentation/widgets/blue_drawer.dart';
-import 'package:premier_pursuit/src/presentation/widgets/challenge_widget.dart';
 import 'package:premier_pursuit/src/presentation/widgets/custom_outlined_button.dart';
 import 'package:premier_pursuit/src/utils/show_dialog.dart';
 
